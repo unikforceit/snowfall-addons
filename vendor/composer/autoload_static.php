@@ -7,30 +7,30 @@ namespace Composer\Autoload;
 class ComposerStaticInitc8ab8da1e405711f9828950eadd54b65
 {
     public static $files = array (
-        'db1d15e3d526a91c7b472f77599f1dd0' => __DIR__ . '/../..' . '/includes/framework/codestar-framework.php',
-        '7c43a432c8331df5592a89cb890748ce' => __DIR__ . '/../..' . '/helpers/helpers.php',
-        '9903fb0c17f7697cbfc493aad071d0f0' => __DIR__ . '/../..' . '/helpers/admin-options.php',
+        'd679d879b31f3f051fbd5f4c751444d0' => __DIR__ . '/../..' . '/includes/framework/codestar-framework.php',
+        '1e97952617f4527bc22aaa8d48187587' => __DIR__ . '/../..' . '/helpers/helpers.php',
+        '822fc38450a8ec36263f0af2cc27e0dd' => __DIR__ . '/../..' . '/helpers/admin-options.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
-            'Themepaste\\SnowfallAddons\\Includes\\' => 35,
-            'Themepaste\\SnowfallAddons\\Frontend\\' => 35,
-            'Themepaste\\SnowfallAddons\\Admin\\' => 32,
+            'Themepaste\\WoofallAddons\\Includes\\' => 34,
+            'Themepaste\\WoofallAddons\\Frontend\\' => 34,
+            'Themepaste\\WoofallAddons\\Admin\\' => 31,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Themepaste\\SnowfallAddons\\Includes\\' => 
+        'Themepaste\\WoofallAddons\\Includes\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
-        'Themepaste\\SnowfallAddons\\Frontend\\' => 
+        'Themepaste\\WoofallAddons\\Frontend\\' => 
         array (
             0 => __DIR__ . '/../..' . '/frontend',
         ),
-        'Themepaste\\SnowfallAddons\\Admin\\' => 
+        'Themepaste\\WoofallAddons\\Admin\\' => 
         array (
             0 => __DIR__ . '/../..' . '/admin',
         ),
@@ -38,9 +38,6 @@ class ComposerStaticInitc8ab8da1e405711f9828950eadd54b65
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Themepaste\\SnowfallAddons\\Admin\\Admin' => __DIR__ . '/../..' . '/admin/Admin.php',
-        'Themepaste\\SnowfallAddons\\Frontend\\Frontend' => __DIR__ . '/../..' . '/frontend/Frontend.php',
-        'Themepaste\\SnowfallAddons\\Includes\\Includes' => __DIR__ . '/../..' . '/includes/Includes.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

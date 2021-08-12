@@ -1,6 +1,6 @@
 <?php
 
-namespace Themepaste\SnowfallAddons\Includes;
+namespace Themepaste\WoofallAddons\Includes;
 
 class Includes
 {

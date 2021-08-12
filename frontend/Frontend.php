@@ -1,6 +1,6 @@
 <?php
 
-namespace Themepaste\SnowfallAddons\Frontend;
+namespace Themepaste\WoofallAddons\Frontend;
 
 class Frontend
 {

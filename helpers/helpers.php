@@ -5,7 +5,7 @@
  * @param string $img_size
  * @return string
  */
-function snowfall_image($source, $img_size = 'full')
+function woofall_image($source, $img_size = 'full')
 {
     if ($source) {
         return wp_get_attachment_image($source['id'], $img_size);
@@ -17,7 +17,7 @@ function snowfall_image($source, $img_size = 'full')
  * @param string $tax
  * @return array
  */
-function snowfall_category_lists($tax = 'category')
+function woofall_category_lists($tax = 'category')
 {
 
     $categories_obj = get_categories('taxonomy=' . $tax . '');
@@ -34,7 +34,7 @@ function snowfall_category_lists($tax = 'category')
  * @param string $taxonomy
  * @return string
  */
-function snowfall_get_category_link($style, $taxonomy = 'product_cat')
+function woofall_get_category_link($style, $taxonomy = 'product_cat')
 {
 
     global $post;
@@ -55,7 +55,7 @@ function snowfall_get_category_link($style, $taxonomy = 'product_cat')
  * @param string $post_type
  * @return array
  */
-function snowfall_post_lists($post_type = 'product')
+function woofall_post_lists($post_type = 'product')
 {
     $args = array(
         'numberposts' => -1,
@@ -73,7 +73,7 @@ function snowfall_post_lists($post_type = 'product')
 /**
  * @return array|false
  */
-function snowfall_image_sizes()
+function woofall_image_sizes()
 {
     $image_sizes = get_intermediate_image_sizes();
 
@@ -91,7 +91,7 @@ function snowfall_image_sizes()
  * @param $link
  * @return string
  */
-function snowfall_link($link)
+function woofall_link($link)
 {
 
     $url = $link['url'] ? 'href=' . esc_url($link['url']) . '' : '';
@@ -104,7 +104,7 @@ function snowfall_link($link)
  * @param $data
  * @return string
  */
-function snowfall_odd_even($data)
+function woofall_odd_even($data)
 {
     if ($data % 2 == 0) {
         $data = "Even";
@@ -119,7 +119,7 @@ function snowfall_odd_even($data)
  * @param null $default
  * @return |null
  */
-function snowfall_meta($meta = '', $default = null)
+function woofall_meta($meta = '', $default = null)
 {
     $options = get_post_meta(get_the_ID(), '_slidermeta', true);
     return (isset($options[$meta])) ? $options[$meta] : $default;
@@ -130,8 +130,8 @@ function snowfall_meta($meta = '', $default = null)
  * @param null $default
  * @return |null
  */
-function snowfall_option($option = '', $default = null)
+function woofall_option($option = '', $default = null)
 {
-    $options = get_option('_snowfall'); // Attention: Set your unique id of the framework
+    $options = get_option('_woofall'); // Attention: Set your unique id of the framework
     return (isset($options[$option])) ? $options[$option] : $default;
 }

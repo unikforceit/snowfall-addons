@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Themepaste\\SnowfallAddons\\Includes\\' => array($baseDir . '/includes'),
-    'Themepaste\\SnowfallAddons\\Frontend\\' => array($baseDir . '/frontend'),
-    'Themepaste\\SnowfallAddons\\Admin\\' => array($baseDir . '/admin'),
+    'Themepaste\\WoofallAddons\\Includes\\' => array($baseDir . '/includes'),
+    'Themepaste\\WoofallAddons\\Frontend\\' => array($baseDir . '/frontend'),
+    'Themepaste\\WoofallAddons\\Admin\\' => array($baseDir . '/admin'),
 );

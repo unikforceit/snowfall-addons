@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'db1d15e3d526a91c7b472f77599f1dd0' => $baseDir . '/includes/framework/codestar-framework.php',
-    '7c43a432c8331df5592a89cb890748ce' => $baseDir . '/helpers/helpers.php',
-    '9903fb0c17f7697cbfc493aad071d0f0' => $baseDir . '/helpers/admin-options.php',
+    'd679d879b31f3f051fbd5f4c751444d0' => $baseDir . '/includes/framework/codestar-framework.php',
+    '1e97952617f4527bc22aaa8d48187587' => $baseDir . '/helpers/helpers.php',
+    '822fc38450a8ec36263f0af2cc27e0dd' => $baseDir . '/helpers/admin-options.php',
 );

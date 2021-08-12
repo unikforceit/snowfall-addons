@@ -1,11 +1,11 @@
 {
-    "name": "themepaste/snowfall-addons",
-    "description": "Snowfall addons is a complete woocommerce solutions with elementor and other building features.",
+    "name": "themepaste/woofall-addons",
+    "description": "Woofall addons is a complete woocommerce solutions with elementor and other building features.",
     "autoload": {
         "psr-4": {
-            "Themepaste\\SnowfallAddons\\Admin\\": "admin/",
-            "Themepaste\\SnowfallAddons\\Frontend\\": "frontend/",
-            "Themepaste\\SnowfallAddons\\Includes\\": "includes/"
+            "Themepaste\\WoofallAddons\\Admin\\": "admin/",
+            "Themepaste\\WoofallAddons\\Frontend\\": "frontend/",
+            "Themepaste\\WoofallAddons\\Includes\\": "includes/"
         },
         "files": [
             "includes/framework/codestar-framework.php",

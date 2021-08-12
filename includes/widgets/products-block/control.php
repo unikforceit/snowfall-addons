@@ -12,7 +12,7 @@ class products_block extends Widget_Base {
       return __( 'SF - Product Block', 'swnofall' );
    }
     public function get_categories() {
-		return [ 'snowfall' ];
+		return [ 'woofall' ];
 	}
    public function get_icon() { 
         return 'eicon-posts-group';
@@ -45,7 +45,7 @@ class products_block extends Widget_Base {
             [
                 'label' => __('Select Product Category', 'swnofall'),
                 'type' => Controls_Manager::SELECT2,
-                'options' => snowfall_category_lists('product_cat'),
+                'options' => woofall_category_lists('product_cat'),
                 'multiple' => true,
                 'label_block' => true,
                 'condition' => [
@@ -60,7 +60,7 @@ class products_block extends Widget_Base {
             [
                 'label' => __('Select Products', 'swnofall'),
                 'type' => Controls_Manager::SELECT2,
-                'options' => snowfall_post_lists('product'),
+                'options' => woofall_post_lists('product'),
                 'multiple' => true,
                 'label_block' => true,
                 'condition' => [
@@ -71,7 +71,7 @@ class products_block extends Widget_Base {
         $this->add_control(
             'number_product',
             [
-                'label' => __( 'Total Product', 'snowfall' ),
+                'label' => __( 'Total Product', 'woofall' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ 'px' ],
                 'range' => [

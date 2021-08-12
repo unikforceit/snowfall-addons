@@ -4,13 +4,13 @@ if (class_exists('CSF')) {
 
     //
     // Set a unique slug-like ID
-    $prefix = '_snowfall';
+    $prefix = '_woofall';
 
     //
     // Create options
     CSF::createOptions($prefix, array(
-        'menu_title' => 'Snowfall',
-        'menu_slug' => 'snowfall',
+        'menu_title' => 'Woofall',
+        'menu_slug' => 'woofall',
         'nav' => 'inline',
         'theme' => 'light',
     ));

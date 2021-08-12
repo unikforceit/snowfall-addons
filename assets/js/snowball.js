@@ -26,5 +26,5 @@
         }
     });
 
-console.log('Snowfall Js loaded')
+console.log('Woofall Js loaded')
 })(jQuery);

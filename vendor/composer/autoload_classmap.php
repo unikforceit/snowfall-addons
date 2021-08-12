@@ -7,7 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Themepaste\\SnowfallAddons\\Admin\\Admin' => $baseDir . '/admin/Admin.php',
-    'Themepaste\\SnowfallAddons\\Frontend\\Frontend' => $baseDir . '/frontend/Frontend.php',
-    'Themepaste\\SnowfallAddons\\Includes\\Includes' => $baseDir . '/includes/Includes.php',
 );

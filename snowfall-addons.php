@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: Snowfall - WooCommerce Elementor Addons + Builder
+ * Plugin Name: Woofall - WooCommerce Elementor Addons + Builder
  * Description: The WooCommerce elements library for Elementor page builder plugin for WordPress.
- * Plugin URI:  https://wordpress.org/plugins/snowfall-addons/
+ * Plugin URI:  https://wordpress.org/plugins/woofall-addons/
  * Version:     1.0.0
  * Author:      Themepaste
  * Author URI:  https://themepaste.com/
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: snowfall
+ * Text Domain: woofall
  * WC tested up to: 5.5.2
  * Elementor tested up to: 3.3.1
  * Elementor Pro tested up to: 3.3.4
@@ -21,9 +21,9 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 
 /**
- * Class Snowfall
+ * Class Woofall
  */
-final class SNOWFALL_ADDONS
+final class WOOFALL_ADDONS
 {
     /**
      * Plugin Version
@@ -133,15 +133,18 @@ final class SNOWFALL_ADDONS
         if (isset($_GET['activate'])) {
             $message = sprintf(
             /* translators: 1: Plugin name 2: Elementor */
-                esc_html__('"%1$s" requires "%2$s" to be installed and activated.', 'snowfall'),
-                '<strong>' . esc_html__('Snowfall', 'snowfall') . '</strong>',
-                '<strong>' . esc_html__('Elementor', 'snowfall') . '</strong>'
+                esc_html__('"%1$s" requires "%2$s" to be installed and activated.', 'woofall'),
+                '<strong>' . esc_html__('Woofall', 'woofall') . '</strong>',
+                '<strong>' . esc_html__('Elementor', 'woofall') . '</strong>'
             );
             printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
         }
         unset($_GET['activate']);
     }
 
+    /**
+     * Check elementor version
+     */
     public function admin_notice_minimum_elementor_version()
     {
 
@@ -149,9 +152,9 @@ final class SNOWFALL_ADDONS
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'snowfall'),
-            '<strong>' . esc_html__('Snowfall', 'snowfall') . '</strong>',
-            '<strong>' . esc_html__('Elementor', 'snowfall') . '</strong>',
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'woofall'),
+            '<strong>' . esc_html__('Woofall', 'woofall') . '</strong>',
+            '<strong>' . esc_html__('Elementor', 'woofall') . '</strong>',
             self::MINIMUM_ELEMENTOR_VERSION
         );
 
@@ -159,6 +162,10 @@ final class SNOWFALL_ADDONS
 
     }
 
+
+    /**
+     * Check server php versions
+     */
     public function admin_notice_minimum_php_version()
     {
 
@@ -166,9 +173,9 @@ final class SNOWFALL_ADDONS
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'snowfall'),
-            '<strong>' . esc_html__('Snowfall', 'snowfall') . '</strong>',
-            '<strong>' . esc_html__('PHP', 'snowfall') . '</strong>',
+            esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'woofall'),
+            '<strong>' . esc_html__('Woofall', 'woofall') . '</strong>',
+            '<strong>' . esc_html__('PHP', 'woofall') . '</strong>',
             self::MINIMUM_PHP_VERSION
         );
 
@@ -177,9 +184,9 @@ final class SNOWFALL_ADDONS
     }
 
     /**
-     * Main Snowfall Instance
+     * Main Woofall Instance
      *
-     * Insures that only one instance of Snowfall exists in memory at any one
+     * Insures that only one instance of Woofall exists in memory at any one
      * time. Also prevents needing to define globals all over the place.
      */
 
@@ -198,14 +205,14 @@ final class SNOWFALL_ADDONS
      */
     public function define_constants()
     {
-        define('SNOWFALL_VERSION', self::VERSION);
-        define('SNOWFALL_ADDONS_PL_ROOT', __FILE__);
-        define('SNOWFALL_ADDONS_PL_URL', plugins_url('/', SNOWFALL_ADDONS_PL_ROOT));
-        define('SNOWFALL_ADDONS_PL_PATH', plugin_dir_path(SNOWFALL_ADDONS_PL_ROOT));
-        define('SNOWFALL_ADDONS_DIR_URL', plugin_dir_url(SNOWFALL_ADDONS_PL_ROOT));
-        define('SNOWFALL_PLUGIN_BASE', plugin_basename(SNOWFALL_ADDONS_PL_ROOT));
-        define('SNOWFALL_PLUGIN_DIR_NAME', dirname(__FILE__) . '/');
-        define('SNOWFALL_ITEM_NAME', 'Snowfall - WooCommerce Elementor Addons + Builder');
+        define('WOOFALL_VERSION', self::VERSION);
+        define('WOOFALL_ADDONS_PL_ROOT', __FILE__);
+        define('WOOFALL_ADDONS_PL_URL', plugins_url('/', WOOFALL_ADDONS_PL_ROOT));
+        define('WOOFALL_ADDONS_PL_PATH', plugin_dir_path(WOOFALL_ADDONS_PL_ROOT));
+        define('WOOFALL_ADDONS_DIR_URL', plugin_dir_url(WOOFALL_ADDONS_PL_ROOT));
+        define('WOOFALL_PLUGIN_BASE', plugin_basename(WOOFALL_ADDONS_PL_ROOT));
+        define('WOOFALL_PLUGIN_DIR_NAME', dirname(__FILE__) . '/');
+        define('WOOFALL_ITEM_NAME', 'Woofall - WooCommerce Elementor Addons + Builder');
     }
 
     /**
@@ -214,22 +221,20 @@ final class SNOWFALL_ADDONS
      * @return void
      */
     public function init_plugin() {
-        new Themepaste\SnowfallAddons\Includes\Includes();
-
-        new Themepaste\SnowfallAddons\Admin\Admin();
+        new Themepaste\WoofallAddons\Admin\Admin();
     }
 
     /**
      * Activate Log to database
      */
     public function activate() {
-        $installed = get_option( 'snowfall_addons_installed' );
+        $installed = get_option( 'woofall_addons_installed' );
 
         if ( ! $installed ) {
-            update_option( 'snowfall_addons_installed', time() );
+            update_option( 'woofall_addons_installed', time() );
         }
 
-        update_option( 'snowfall_addons_version', SNOWFALL_VERSION );
+        update_option( 'woofall_addons_version', WOOFALL_VERSION );
     }
 
     /**
@@ -241,7 +246,7 @@ final class SNOWFALL_ADDONS
     public function __clone()
     {
         // Cloning instances of the class is forbidden
-        _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'snowfall'), '1.0.0');
+        _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'woofall'), '1.0.0');
     }
 
     /**
@@ -251,15 +256,15 @@ final class SNOWFALL_ADDONS
     public function __wakeup()
     {
         // Unserializing instances of the class is forbidden
-        _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'snowfall'), '1.0.0');
+        _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'woofall'), '1.0.0');
     }
 
 }
 
-function SNOWFALL_ADDONS_INIT()
+function WOOFALL_ADDONS_INIT()
 {
-    return SNOWFALL_ADDONS::init();
+    return WOOFALL_ADDONS::init();
 }
 
-// Get SnowFall Addons Running
-SNOWFALL_ADDONS_INIT();
+// Get WooFall Addons Running
+WOOFALL_ADDONS_INIT();
