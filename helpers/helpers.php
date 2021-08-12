@@ -135,3 +135,79 @@ function woofall_option($option = '', $default = null)
     $options = get_option('_woofall'); // Attention: Set your unique id of the framework
     return (isset($options[$option])) ? $options[$option] : $default;
 }
+
+/**
+ * [woofall_get_taxonomies]
+ * @return [array] product texonomies
+ */
+function woofall_get_taxonomies( $object = 'product' ) {
+    $all_taxonomies = get_object_taxonomies( $object );
+    $taxonomies_list = [];
+    foreach ( $all_taxonomies as $taxonomy_data ) {
+        $taxonomy = get_taxonomy( $taxonomy_data );
+        if( $taxonomy->show_ui ) {
+            $taxonomies_list[ $taxonomy_data ] = $taxonomy->label;
+        }
+    }
+    return $taxonomies_list;
+}
+
+/**
+ * Woocommerce Product last product id return
+ */
+function woofall_get_last_product_id(){
+    global $wpdb;
+
+    // Getting last Product ID (max value)
+    $results = $wpdb->get_col( "
+        SELECT MAX(ID) FROM {$wpdb->prefix}posts
+        WHERE post_type LIKE 'product'
+        AND post_status = 'publish'"
+    );
+    return reset($results);
+}
+
+/*
+ * HTML Tag list
+ * return array
+ */
+function woofall_html_tag_lists() {
+    $html_tag_list = [
+        'h1'   => __( 'H1', 'woofall' ),
+        'h2'   => __( 'H2', 'woofall' ),
+        'h3'   => __( 'H3', 'woofall' ),
+        'h4'   => __( 'H4', 'woofall' ),
+        'h5'   => __( 'H5', 'woofall' ),
+        'h6'   => __( 'H6', 'woofall' ),
+        'p'    => __( 'p', 'woofall' ),
+        'div'  => __( 'div', 'woofall' ),
+        'span' => __( 'span', 'woofall' ),
+    ];
+    return $html_tag_list;
+}
+
+/*
+ * HTML Tag Validation
+ * return strig
+ */
+function woofall_validate_html_tag( $tag ) {
+    $allowed_html_tags = [
+        'article',
+        'aside',
+        'footer',
+        'header',
+        'section',
+        'nav',
+        'main',
+        'div',
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'p',
+        'span',
+    ];
+    return in_array( strtolower( $tag ), $allowed_html_tags ) ? $tag : 'div';
+}

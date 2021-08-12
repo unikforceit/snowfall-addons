@@ -9,7 +9,7 @@ class products_block extends Widget_Base {
    }
 
    public function get_title() {
-      return __( 'SF - Product Block', 'swnofall' );
+      return __( 'WF - Product Block', 'swnofall' );
    }
     public function get_categories() {
 		return [ 'woofall' ];
