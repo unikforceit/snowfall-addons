@@ -2,29 +2,39 @@
 
 namespace Themepaste\WoofallAddons\Admin;
 
-use const http\Client\Curl\VERSIONS;
-
 class Admin
 {
     function __construct()
     {
-        add_action('elementor/widgets/widgets_registered', array($this, 'elementor_load_widgets'));
-        add_action('elementor/frontend/after_register_scripts', array($this, 'elementor_load_script'), 10);
-        add_action('elementor/frontend/after_enqueue_styles', array($this, 'elementor_load_style'), 10);
         add_action('elementor/init', array($this, 'elementor_category'));
         add_action('template_redirect', array($this, 'elementor_template_redirect'), 9);
         add_filter('plugin_action_links_' . WOOFALL_PLUGIN_BASE, [$this, 'plugins_setting_links']);
         add_filter('plugin_row_meta', array($this, 'plugin_meta_links'), 10, 2);
         add_filter('admin_footer_text', array($this, 'admin_footer_text'));
+        add_action('admin_enqueue_scripts', [$this, 'admin_css']);
     }
 
+    /**
+     * Admin css Handler
+     */
+    public function admin_css()
+    {
+        wp_enqueue_style('admin-style', WOOFALL_ADDONS_PL_URL . 'assets/css/admin.css', array(), filemtime(WOOFALL_PLUGIN_DIR_NAME . 'assets/css/admin.css'), 'all');
+    }
 
+    /**
+     * Elementor template block Handler
+     */
     public function elementor_template_redirect()
     {
         $instance = \Elementor\Plugin::$instance->templates_manager->get_source('local');
         remove_action('template_redirect', [$instance, 'block_template_frontend']);
     }
 
+
+    /**
+     * Elementor Category Handler
+     */
     public function elementor_category()
     {
         \Elementor\Plugin::instance()->elements_manager->add_category(
@@ -34,44 +44,6 @@ class Admin
                 'icon' => 'fa fa-plug',
             ),
             1);
-    }
-
-    /**
-     * Load Frontend Style
-     *
-     */
-    public function elementor_load_style()
-    {
-        foreach (glob(WOOFALL_PLUGIN_DIR_NAME . 'assets/css/*.css') as $file) {
-            $filename = substr($file, strrpos($file, '/') + 1);
-            wp_enqueue_style($filename, WOOFALL_ADDONS_PL_URL . 'assets/css/' . $filename, array(), filemtime(WOOFALL_PLUGIN_DIR_NAME . 'assets/css/' . $filename), 'all');
-        }
-        //wp_enqueue_style( 'woofall', WOOFALL_ADDONS_PL_URL . 'assets/css/woofall.css', array(), WOOFALL_VERSION, 'all');
-
-    }
-
-    /**
-     * Load Frontend Scripts
-     *
-     */
-    public function elementor_load_script()
-    {
-        foreach (glob(WOOFALL_PLUGIN_DIR_NAME . 'assets/js/*.js') as $file) {
-            $filename = substr($file, strrpos($file, '/') + 1);
-            wp_enqueue_script($filename, WOOFALL_ADDONS_PL_URL . 'assets/js/' . $filename, array('jquery'), filemtime(WOOFALL_PLUGIN_DIR_NAME . 'assets/js/' . $filename), true);
-        }
-    }
-
-
-    /**
-     * Include required files
-     *
-     */
-    public function elementor_load_widgets()
-    {
-        foreach (glob(WOOFALL_ADDONS_PL_PATH . 'includes/widgets/*/control.php') as $file) {
-            include_once $file;
-        }
     }
 
     /**
@@ -92,14 +64,14 @@ class Admin
     /**
      * Add links to plugin's description in plugins table
      *
-     * @param array  $links  Initial list of links.
-     * @param string $file   Basename of current plugin.
+     * @param array $links Initial list of links.
+     * @param string $file Basename of current plugin.
      *
      * @return array
      */
     function plugin_meta_links($links, $file)
     {
-        if ( strpos( $file, basename(__FILE__) ) ) {
+        if (strpos($file, basename(__FILE__))) {
             return $links;
         }
 
@@ -108,6 +80,7 @@ class Admin
 
         return $links;
     }
+
     /**
      * Test if we're on woofall's admin page
      *
@@ -127,10 +100,10 @@ class Admin
     /**
      * Helper function for generating links
      *
-     * @param string  $placement  Optional. UTM content param.
-     * @param string  $page       Optional. Page to link to.
-     * @param array   $params     Optional. Extra URL params.
-     * @param string  $anchor     Optional. URL anchor part.
+     * @param string $placement Optional. UTM content param.
+     * @param string $page Optional. Page to link to.
+     * @param array $params Optional. Extra URL params.
+     * @param string $anchor Optional. URL anchor part.
      *
      * @return string
      */
@@ -150,7 +123,7 @@ class Admin
             $placement = '-' . $placement;
         }
 
-        $parts = array_merge(array('ref' => 'wp-reset-free'. $placement), $params);
+        $parts = array_merge(array('ref' => 'wp-reset-free' . $placement), $params);
 
         if (!empty($anchor)) {
             $anchor = '#' . trim($anchor, '#');
@@ -164,7 +137,7 @@ class Admin
     /**
      * Add powered by text in admin footer
      *
-     * @param string  $text  Default footer text.
+     * @param string $text Default footer text.
      *
      * @return string
      */

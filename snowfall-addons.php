@@ -222,6 +222,8 @@ final class WOOFALL_ADDONS
      */
     public function init_plugin() {
         new Themepaste\WoofallAddons\Admin\Admin();
+        new Themepaste\WoofallAddons\Frontend\Frontend();
+        new Themepaste\WoofallAddons\Includes\Includes();
     }
 
     /**
