@@ -7,7 +7,7 @@ class Woofall_Woo_Custom_Template_Layout
 {
 
 
-    public static $wf_woo_elementor_template = array();
+    public static $wf_elementor_template = array();
 
     private static $_instance = null;
 
@@ -104,7 +104,7 @@ class Woofall_Woo_Custom_Template_Layout
     public function wf_get_product_page_template($template, $slug, $name)
     {
         if ('content' === $slug && 'single-product' === $name) {
-            if (Woofall_Woo_Custom_Template_Layout::wf_woo_custom_product_template()) {
+            if (Woofall_Woo_Custom_Template_Layout::wf_custom_product_template()) {
                 $template = WOOFALL_ADDONS_PL_PATH . 'woo-templates/single-product.php';
             }
         }
@@ -118,7 +118,7 @@ class Woofall_Woo_Custom_Template_Layout
             return $template;
         }
         if (is_singular('product')) {
-            if (Woofall_Woo_Custom_Template_Layout::wf_woo_custom_product_template()) {
+            if (Woofall_Woo_Custom_Template_Layout::wf_custom_product_template()) {
                 $templateid = get_page_template_slug(self::single_product_tmp_id());
                 if ('elementor_header_footer' === $templateid) {
                     $template = WOOFALL_ADDONS_PL_PATH . 'woo-templates/single-product-fullwidth.php';
@@ -132,9 +132,9 @@ class Woofall_Woo_Custom_Template_Layout
 
     public static function wf_get_product_content_elementor()
     {
-        if (Woofall_Woo_Custom_Template_Layout::wf_woo_custom_product_template()) {
-            $wltemplateid = self::single_product_tmp_id();
-            echo Elementor\Plugin::instance()->frontend->get_builder_content_for_display($wltemplateid);
+        if (Woofall_Woo_Custom_Template_Layout::wf_custom_product_template()) {
+            $wftemplateid = self::single_product_tmp_id();
+            echo Elementor\Plugin::instance()->frontend->get_builder_content_for_display($wftemplateid);
         } else {
             the_content();
         }
@@ -148,15 +148,15 @@ class Woofall_Woo_Custom_Template_Layout
 
     public static function single_product_tmp_id()
     {
-        $wltemplateid = woofall_option('singleproductpage');
-        $wlindividualid = get_post_meta(get_the_ID(), '_selectproduct_layout', true) ? get_post_meta(get_the_ID(), '_selectproduct_layout', true) : '0';
-        if ($wlindividualid != '0') {
-            $wltemplateid = $wlindividualid;
+        $wftemplateid = woofall_option('singleproductpage');
+        $wfindividualid = get_post_meta(get_the_ID(), '_selectproduct_layout', true) ? get_post_meta(get_the_ID(), '_selectproduct_layout', true) : '0';
+        if ($wfindividualid != '0') {
+            $wftemplateid = $wfindividualid;
         }
-        return $wltemplateid;
+        return $wftemplateid;
     }
 
-    public static function wf_woo_custom_product_template()
+    public static function wf_custom_product_template()
     {
         $templatestatus = false;
         if (is_product()) {
@@ -164,7 +164,7 @@ class Woofall_Woo_Custom_Template_Layout
                 $templatestatus = true;
             }
         }
-        return apply_filters('wf_woo_custom_product_template', $templatestatus);
+        return apply_filters('wf_custom_product_template', $templatestatus);
     }
 
     /*
@@ -181,21 +181,21 @@ class Woofall_Woo_Custom_Template_Layout
                 $product_shop_custom_page_id = woofall_option('productarchivepage');
 
                 // Archive Layout Control
-                $wltermlayoutid = 0;
+                $wftermlayoutid = 0;
                 if ((is_tax('product_cat') && is_product_category()) || (is_tax('product_tag') && is_product_tag())) {
 
                     $product_archive_custom_page_id = woofall_option('productallarchivepage');
 
                     // Get Meta Value
-                    $wltermlayoutid = get_term_meta($termobj->term_id, 'wooletor_selectcategory_layout', true) ? get_term_meta($termobj->term_id, 'wooletor_selectcategory_layout', true) : '0';
+                    $wftermlayoutid = get_term_meta($termobj->term_id, 'wooletor_selectcategory_layout', true) ? get_term_meta($termobj->term_id, 'wooletor_selectcategory_layout', true) : '0';
 
-                    if (!empty($product_archive_custom_page_id) && $wltermlayoutid == '0') {
-                        $wltermlayoutid = $product_archive_custom_page_id;
+                    if (!empty($product_archive_custom_page_id) && $wftermlayoutid == '0') {
+                        $wftermlayoutid = $product_archive_custom_page_id;
                     }
 
                 }
-                if ($wltermlayoutid != '0') {
-                    $archive_template_id = $wltermlayoutid;
+                if ($wftermlayoutid != '0') {
+                    $archive_template_id = $wftermlayoutid;
                 } else {
                     if (!empty($product_shop_custom_page_id)) {
                         $archive_template_id = $product_shop_custom_page_id;

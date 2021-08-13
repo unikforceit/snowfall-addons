@@ -10,7 +10,9 @@
         "files": [
             "includes/framework/codestar-framework.php",
             "helpers/helpers.php",
-            "helpers/admin-options.php"
+            "helpers/admin-options.php",
+            "includes/builder-functions.php",
+            "includes/woo-data.php"
         ]
     },
     "authors": [

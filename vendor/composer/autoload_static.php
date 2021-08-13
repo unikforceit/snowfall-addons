@@ -10,6 +10,8 @@ class ComposerStaticInitc8ab8da1e405711f9828950eadd54b65
         'd679d879b31f3f051fbd5f4c751444d0' => __DIR__ . '/../..' . '/includes/framework/codestar-framework.php',
         '1e97952617f4527bc22aaa8d48187587' => __DIR__ . '/../..' . '/helpers/helpers.php',
         '822fc38450a8ec36263f0af2cc27e0dd' => __DIR__ . '/../..' . '/helpers/admin-options.php',
+        'e168f513757ee52f161fe0d3b6f615ab' => __DIR__ . '/../..' . '/includes/builder-functions.php',
+        '1c51f1f3e3b3fa0b9efdd4aaba78dade' => __DIR__ . '/../..' . '/includes/woo-data.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -38,6 +40,9 @@ class ComposerStaticInitc8ab8da1e405711f9828950eadd54b65
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Themepaste\\WoofallAddons\\Admin\\Admin' => __DIR__ . '/../..' . '/admin/Admin.php',
+        'Themepaste\\WoofallAddons\\Frontend\\Frontend' => __DIR__ . '/../..' . '/frontend/Frontend.php',
+        'Themepaste\\WoofallAddons\\Includes\\Includes' => __DIR__ . '/../..' . '/includes/Includes.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
