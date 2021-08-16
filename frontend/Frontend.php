@@ -2,6 +2,10 @@
 
 namespace Themepaste\WoofallAddons\Frontend;
 
+/**
+ * Class Frontend
+ * @package Themepaste\WoofallAddons\Frontend
+ */
 class Frontend
 {
     function __construct()

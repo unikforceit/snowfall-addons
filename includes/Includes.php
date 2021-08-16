@@ -2,6 +2,10 @@
 
 namespace Themepaste\WoofallAddons\Includes;
 
+/**
+ * Class Includes
+ * @package Themepaste\WoofallAddons\Includes
+ */
 class Includes
 {
     function __construct()

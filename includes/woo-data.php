@@ -1,8 +1,8 @@
 <?php
 /**
-* WooFall_Woo_Data
+* Woofall_Data
 */
-class WooFall_Woo_Data{
+class Woofall_Data{
 
     /**
      * [$instance]
@@ -53,7 +53,7 @@ class WooFall_Woo_Data{
         if( $post_type == 'elementor_library' ){
             $classes[] = 'woocommerce';
             $classes[] = 'woocommerce-page';
-            $classes[] = 'woolentor-woocommerce-builder';
+            $classes[] = 'woofall-woocommerce-builder';
             $classes[] = 'single-product';
         }
         return $classes;
@@ -84,16 +84,16 @@ class WooFall_Woo_Data{
         if( get_post_type() == 'product' ){
             self::$product_id = $product->get_id();
         }else{
-            if( function_exists('woolentor_get_last_product_id') ){
-                self::$product_id = woolentor_get_last_product_id();
-                $product = wc_get_product( woolentor_get_last_product_id() );
+            if( function_exists('woofall_get_last_product_id') ){
+                self::$product_id = woofall_get_last_product_id();
+                $product = wc_get_product( woofall_get_last_product_id() );
             }
         }
 
         if( $product ){
             switch ( $addons ){
 
-                case 'wl-product-add-to-cart':
+                case 'wf-product-add-to-cart':
                     ob_start();
                     echo '<div class="product">';
                     do_action( 'woocommerce_' . $product->get_type() . '_add_to_cart' );
@@ -101,7 +101,7 @@ class WooFall_Woo_Data{
                     return ob_get_clean();
                     break;
 
-                case 'wl-single-product-price':
+                case 'wf-single-product-price':
                     ob_start();
                     ?>
                     <p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>"><?php echo $product->get_price_html(); ?></p>
@@ -109,7 +109,7 @@ class WooFall_Woo_Data{
                     return ob_get_clean();
                     break;
 
-                case 'wl-single-product-short-description':
+                case 'wf-single-product-short-description':
                     ob_start();
                     $short_description = get_the_excerpt( self::$product_id );
                     $short_description = apply_filters( 'woocommerce_short_description', $short_description );
@@ -120,14 +120,14 @@ class WooFall_Woo_Data{
                     return ob_get_clean();
                     break;
 
-                case 'wl-single-product-description':
+                case 'wf-single-product-description':
                     ob_start();
                     $description = get_post_field( 'post_content', self::$product_id );
                     if ( empty( $description ) ) { return; }
                     return $description .= ob_get_clean();
                     break;
 
-                case 'wl-single-product-rating':
+                case 'wf-single-product-rating':
                     if ( 'no' === get_option( 'woocommerce_enable_review_rating' ) ) {
                         return;
                     }
@@ -139,20 +139,20 @@ class WooFall_Woo_Data{
                     if ( $rating_count > 0 ) : ?>
                         <div class="product">
                             <div class="woocommerce-product-rating">
-                                <?php echo wc_get_rating_html( $average, $rating_count ); // WPCS: XSS ok. ?>
+                                <?php echo wc_get_rating_html( $average, $rating_count ); ?>
                                 <?php if ( comments_open() ) : ?>
-                                    <?php //phpcs:disable ?>
-                                    <a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woolentor' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?>)</a>
-                                    <?php // phpcs:enable ?>
+                                    <?php ?>
+                                    <a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woofall' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?>)</a>
+                                    <?php ?>
                                 <?php endif ?>
                             </div>
                         </div>
                     <?php else:?>
-                        <?php echo '<div class="wl-nodata">'.__('No Rating Available','woolentor').'</div>';?>
+                        <?php echo '<div class="wf-nodata">'.__('No Rating Available','woofall').'</div>';?>
                     <?php endif; 
                     break;
 
-                case 'wl-single-product-image':
+                case 'wf-single-product-image':
                     ob_start();
                     $columns = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
                     $thumbnail_id = $product->get_image_id();
@@ -173,16 +173,16 @@ class WooFall_Woo_Data{
                                         $html = wc_get_gallery_image_html( $thumbnail_id, true );
                                     } else {
                                         $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-                                        $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woolentor' ) );
+                                        $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woofall' ) );
                                         $html .= '</div>';
                                     }
 
-                                    echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+                                    echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $thumbnail_id );
 
                                     $attachment_ids = $product->get_gallery_image_ids();
                                     if ( $attachment_ids && $product->get_image_id() ) {
                                         foreach ( $attachment_ids as $attachment_id ) {
-                                            echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $attachment_id ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+                                            echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $attachment_id ), $attachment_id );
                                         }
                                     }
 
@@ -195,7 +195,7 @@ class WooFall_Woo_Data{
                     return ob_get_clean();
                     break;
 
-                case 'wl-single-product-meta':
+                case 'wf-single-product-meta':
                     ob_start();
                     ?>
                         <div class="product">
@@ -205,13 +205,13 @@ class WooFall_Woo_Data{
 
                                 <?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
 
-                                    <span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'woolentor' ); ?> <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'woolentor' ); ?></span></span>
+                                    <span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'woofall' ); ?> <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'woofall' ); ?></span></span>
 
                                 <?php endif; ?>
 
-                                <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woolentor' ) . ' ', '</span>' ); ?>
+                                <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woofall' ) . ' ', '</span>' ); ?>
 
-                                <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woolentor' ) . ' ', '</span>' ); ?>
+                                <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woofall' ) . ' ', '</span>' ); ?>
 
                                 <?php do_action( 'woocommerce_product_meta_end' ); ?>
 
@@ -221,13 +221,13 @@ class WooFall_Woo_Data{
                     return ob_get_clean();
                     break;
 
-                case 'wl-product-additional-information':
+                case 'wf-product-additional-information':
                     ob_start();
                     wc_get_template( 'single-product/tabs/additional-information.php' );
                     return ob_get_clean();
                     break;
 
-                case 'wl-product-data-tabs':
+                case 'wf-product-data-tabs':
                     setup_postdata( $product->get_id() );
                     ob_start();
                     if( get_post_type() == 'elementor_library' ){
@@ -237,7 +237,7 @@ class WooFall_Woo_Data{
                     return ob_get_clean();
                     break;
 
-                case 'wl-single-product-reviews':
+                case 'wf-single-product-reviews':
                     ob_start();
                     if( comments_open() ){
                         comments_template();
@@ -245,7 +245,7 @@ class WooFall_Woo_Data{
                     return ob_get_clean();
                     break;
 
-                case 'wl-single-product-stock':
+                case 'wf-single-product-stock':
                     ob_start();
                     $availability = $product->get_availability();
                     ?>
@@ -254,7 +254,7 @@ class WooFall_Woo_Data{
                     return ob_get_clean();
                     break;
 
-                case 'wl-single-product-upsell':
+                case 'wf-single-product-upsell':
                     ob_start();
 
                     $product_per_page   = '-1';
@@ -276,7 +276,7 @@ class WooFall_Woo_Data{
                     return ob_get_clean();
                     break;
 
-                case 'wl-product-related':
+                case 'wf-product-related':
                     ob_start();
                     if ( ! $product ) { return; }
                     $args = [
@@ -324,4 +324,4 @@ class WooFall_Woo_Data{
     }
 
 }
-WooFall_Woo_Data::instance();
+Woofall_Data::instance();

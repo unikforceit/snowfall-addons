@@ -2,6 +2,10 @@
 
 namespace Themepaste\WoofallAddons\Admin;
 
+/**
+ * Class Admin
+ * @package Themepaste\WoofallAddons\Admin
+ */
 class Admin
 {
     function __construct()
@@ -53,10 +57,10 @@ class Admin
      */
     public function plugins_setting_links($links)
     {
-        $settings_link = '<a href="' . admin_url('admin.php?page=woofall#tab=overview') . '">' . esc_html__('Settings', 'woofall') . '</a>';
+        $settings_link = '<a href="' . admin_url('admin.php?page=woofall') . '">' . esc_html__('Settings', 'woofall') . '</a>';
         array_unshift($links, $settings_link);
         if (!is_plugin_active('woofall-addons-pro/woofall-addons-pro.php')) {
-            $links['woofallgo_pro'] = sprintf('<a href="https://themepaste.com" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro', 'woofall') . '</a>');
+            $links['woofall'] = sprintf('<a href="https://themepaste.com" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro', 'woofall') . '</a>');
         }
         return $links;
     }

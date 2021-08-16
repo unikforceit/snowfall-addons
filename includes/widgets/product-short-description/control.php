@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WF_Product_Description_Element extends Widget_Base {
+class WF_Product_Short_Description_Element extends Widget_Base {
 
     public function get_name() {
-        return 'wf-single-product-description';
+        return 'wf-single-product-short-description';
     }
 
     public function get_title() {
-        return __( 'WF - Product Description', 'woofall' );
+        return __( 'WF - Product Short Description', 'woofall' );
     }
 
     public function get_icon() {
@@ -28,19 +28,21 @@ class WF_Product_Description_Element extends Widget_Base {
     }
 
     public function get_keywords(){
-        return ['description','product description','product content'];
+        return ['short description','description','product short description'];
     }
 
     protected function _register_controls() {
 
-        // Product Style
+
+        // Style
         $this->start_controls_section(
-            'product_style_section',
+            'product_content_style_section',
             array(
                 'label' => __( 'Style', 'woofall' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
+
             $this->add_responsive_control(
                 'text_align',
                 [
@@ -76,7 +78,8 @@ class WF_Product_Description_Element extends Widget_Base {
                     'label' => __( 'Text Color', 'woofall' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .woocommerce_product_description' => 'color: {{VALUE}} !important',
+                        '{{WRAPPER}} .woocommerce-product-details__short-description' => 'color: {{VALUE}}',
+                        '{{WRAPPER}} .woocommerce-product-details__short-description p' => 'color: {{VALUE}}',
                     ],
                 ]
             );
@@ -86,7 +89,7 @@ class WF_Product_Description_Element extends Widget_Base {
                 [
                     'name' => 'text_typography',
                     'label' => __( 'Typography', 'woofall' ),
-                    'selector' => '{{WRAPPER}} .woocommerce_product_description',
+                    'selector' => '{{WRAPPER}} .woocommerce-product-details__short-description,{{WRAPPER}} .woocommerce-product-details__short-description p',
                 ]
             );
 
@@ -96,17 +99,17 @@ class WF_Product_Description_Element extends Widget_Base {
 
 
     protected function render( $instance = [] ) {
-       global $product, $post;
+        global $product;
         $product = wc_get_product();
         if ( Plugin::instance()->editor->is_edit_mode() ) {
-            echo '<div class="woocommerce_product_description">'.\Woofall_Data::instance()->default( $this->get_name() ).'</div>';
+            echo \Woofall_Data::instance()->default( $this->get_name() );
         }else{
-            if ( empty( $product ) ) { return; }
-            echo '<div class="woocommerce_product_description">';
-                the_content();
-            echo '</div>';
+            if ( empty( $product ) ) {
+                return;
+            }
+            wc_get_template( 'single-product/short-description.php' );
         }
     }
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Description_Element() );
+Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Short_Description_Element() );
