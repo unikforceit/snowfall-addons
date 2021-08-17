@@ -12,8 +12,8 @@ class Admin
     {
         add_action('elementor/init', array($this, 'elementor_category'));
         add_action('template_redirect', array($this, 'elementor_template_redirect'), 9);
-        add_filter('plugin_action_links_' . WOOFALL_PLUGIN_BASE, [$this, 'plugins_setting_links']);
-        add_filter('plugin_row_meta', array($this, 'plugin_meta_links'), 10, 2);
+        //add_filter('plugin_action_links_' . WOOFALL_PLUGIN_BASE, [$this, 'plugins_setting_links']);
+        //add_filter('plugin_row_meta', array($this, 'plugin_meta_links'), 10, 2);
         add_filter('admin_footer_text', array($this, 'admin_footer_text'));
         add_action('admin_enqueue_scripts', [$this, 'admin_css']);
     }

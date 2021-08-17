@@ -119,6 +119,7 @@ class WF_Product_Price_Element extends Widget_Base {
         }else{
             if ( empty( $product ) ) { return; }
             woocommerce_template_single_price();
+            woocommerce_single_variation();
         }
 
     }
