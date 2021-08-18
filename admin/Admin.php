@@ -16,6 +16,85 @@ class Admin
         //add_filter('plugin_row_meta', array($this, 'plugin_meta_links'), 10, 2);
         add_filter('admin_footer_text', array($this, 'admin_footer_text'));
         add_action('admin_enqueue_scripts', [$this, 'admin_css']);
+
+        if (!is_plugin_active('elementor/elementor.php')) {
+            add_action('admin_notices', [$this, 'elmentor_plugins_missing']);
+        }
+        if (!is_plugin_active('woocommerce/woocommerce.php')) {
+            add_action('admin_notices', [$this, 'woocommerce_plugins_missing']);
+        }
+    }
+    /**
+     * Missing Elementor Check
+     */
+    public function elmentor_plugins_missing()
+    {
+
+        if (!current_user_can('install_plugins')) {
+            return;
+        }
+        $screen = get_current_screen();
+        if (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) {
+            return;
+        }
+        $plugin = 'elementor/elementor.php';
+        $installed_plugins = get_plugins();
+        $is_woocommerce_installed = isset($installed_plugins[$plugin]);
+        if (!$is_woocommerce_installed) {
+            $button_text = 'Install Now!';
+            $button_link = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=elementor'), 'install-plugin_elementor');
+        } else {
+            $button_text = 'Activate Now!';
+            $button_link = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin);
+        }
+        ?>
+        <div class="notice notice-warning is-dismissible">
+            <p>
+                <strong><?php esc_html_e(WOOFALL_ITEM_NAME . ' requires Elementor to be installed and activated.', 'woofall'); ?></strong>
+            </p>
+            <br>
+            <a class="button button-primary"
+               href="<?php echo esc_attr($button_link); ?>"><?php esc_html_e($button_text); ?></a>
+            <br>
+            <br>
+        </div>
+        <?php
+    }
+
+    /**
+     * Missing WooCommerce Check
+     */
+    public function woocommerce_plugins_missing()
+    {
+        if (!current_user_can('install_plugins')) {
+            return;
+        }
+        $screen = get_current_screen();
+        if (isset($screen->parent_file) && 'plugins.php' === $screen->parent_file && 'update' === $screen->id) {
+            return;
+        }
+        $plugin = 'woocommerce/woocommerce.php';
+        $installed_plugins = get_plugins();
+        $is_woocommerce_installed = isset($installed_plugins[$plugin]);
+        if (!$is_woocommerce_installed) {
+            $button_text = 'Install Now!';
+            $button_link = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=woocommerce'), 'install-plugin_woocommerce');
+        } else {
+            $button_text = 'Activate Now!';
+            $button_link = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin);
+        }
+        ?>
+        <div class="notice notice-warning is-dismissible">
+            <p>
+                <strong><?php esc_html_e(WOOFALL_ITEM_NAME . ' requires WooCommerce to be installed and activated.', 'woofall'); ?></strong>
+            </p>
+            <br>
+            <a class="button button-primary"
+               href="<?php echo esc_attr($button_link); ?>"><?php esc_html_e($button_text); ?></a>
+            <br>
+            <br>
+        </div>
+        <?php
     }
 
     /**

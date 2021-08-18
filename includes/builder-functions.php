@@ -6,7 +6,6 @@
 class Woofall_Woo_Custom_Template_Layout
 {
 
-
     public static $wf_elementor_template = array();
 
     private static $_instance = null;
@@ -187,7 +186,7 @@ class Woofall_Woo_Custom_Template_Layout
                     $product_archive_custom_page_id = woofall_option('productallarchivepage');
 
                     // Get Meta Value
-                    $wftermlayoutid = get_term_meta($termobj->term_id, 'wooletor_selectcategory_layout', true) ? get_term_meta($termobj->term_id, 'wooletor_selectcategory_layout', true) : '0';
+                    $wftermlayoutid = get_term_meta($termobj->term_id, 'woofall_selectcategory_layout', true) ? get_term_meta($termobj->term_id, 'woofall_selectcategory_layout', true) : '0';
 
                     if (!empty($product_archive_custom_page_id) && $wftermlayoutid == '0') {
                         $wftermlayoutid = $product_archive_custom_page_id;
