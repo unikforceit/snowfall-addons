@@ -5,7 +5,7 @@
  * @param string $img_size
  * @return string
  */
-function woofall_image($source, $img_size = 'full')
+function woomentor_image($source, $img_size = 'full')
 {
     if ($source) {
         return wp_get_attachment_image($source['id'], $img_size);
@@ -17,7 +17,7 @@ function woofall_image($source, $img_size = 'full')
  * @param string $tax
  * @return array
  */
-function woofall_category_lists($tax = 'category')
+function woomentor_category_lists($tax = 'category')
 {
 
     $categories_obj = get_categories('taxonomy=' . $tax . '');
@@ -34,7 +34,7 @@ function woofall_category_lists($tax = 'category')
  * @param string $taxonomy
  * @return string
  */
-function woofall_get_category_link($style, $taxonomy = 'product_cat')
+function woomentor_get_category_link($style, $taxonomy = 'product_cat')
 {
 
     global $post;
@@ -55,7 +55,7 @@ function woofall_get_category_link($style, $taxonomy = 'product_cat')
  * @param string $post_type
  * @return array
  */
-function woofall_post_lists($post_type = 'product')
+function woomentor_post_lists($post_type = 'product')
 {
     $args = array(
         'numberposts' => -1,
@@ -73,7 +73,7 @@ function woofall_post_lists($post_type = 'product')
 /**
  * @return array|false
  */
-function woofall_image_sizes()
+function woomentor_image_sizes()
 {
     $image_sizes = get_intermediate_image_sizes();
 
@@ -91,7 +91,7 @@ function woofall_image_sizes()
  * @param $link
  * @return string
  */
-function woofall_link($link)
+function woomentor_link($link)
 {
 
     $url = $link['url'] ? 'href=' . esc_url($link['url']) . '' : '';
@@ -104,7 +104,7 @@ function woofall_link($link)
  * @param $data
  * @return string
  */
-function woofall_odd_even($data)
+function woomentor_odd_even($data)
 {
     if ($data % 2 == 0) {
         $data = "Even";
@@ -119,7 +119,7 @@ function woofall_odd_even($data)
  * @param null $default
  * @return |null
  */
-function woofall_meta($meta = '', $default = null)
+function woomentor_meta($meta = '', $default = null)
 {
     $options = get_post_meta(get_the_ID(), '_slidermeta', true);
     return (isset($options[$meta])) ? $options[$meta] : $default;
@@ -130,17 +130,17 @@ function woofall_meta($meta = '', $default = null)
  * @param null $default
  * @return |null
  */
-function woofall_option($option = '', $default = null)
+function woomentor_option($option = '', $default = null)
 {
-    $options = get_option('_woofall'); // Attention: Set your unique id of the framework
+    $options = get_option('_woomentor'); // Attention: Set your unique id of the framework
     return (isset($options[$option])) ? $options[$option] : $default;
 }
 
 /**
- * [woofall_get_taxonomies]
+ * [woomentor_get_taxonomies]
  * @return [array] product texonomies
  */
-function woofall_get_taxonomies( $object = 'product' ) {
+function woomentor_get_taxonomies( $object = 'product' ) {
     $all_taxonomies = get_object_taxonomies( $object );
     $taxonomies_list = [];
     foreach ( $all_taxonomies as $taxonomy_data ) {
@@ -155,7 +155,7 @@ function woofall_get_taxonomies( $object = 'product' ) {
 /**
  * Woocommerce Product last product id return
  */
-function woofall_get_last_product_id(){
+function woomentor_get_last_product_id(){
     global $wpdb;
 
     // Getting last Product ID (max value)
@@ -171,17 +171,17 @@ function woofall_get_last_product_id(){
  * HTML Tag list
  * return array
  */
-function woofall_html_tag_lists() {
+function woomentor_html_tag_lists() {
     $html_tag_list = [
-        'h1'   => __( 'H1', 'woofall' ),
-        'h2'   => __( 'H2', 'woofall' ),
-        'h3'   => __( 'H3', 'woofall' ),
-        'h4'   => __( 'H4', 'woofall' ),
-        'h5'   => __( 'H5', 'woofall' ),
-        'h6'   => __( 'H6', 'woofall' ),
-        'p'    => __( 'p', 'woofall' ),
-        'div'  => __( 'div', 'woofall' ),
-        'span' => __( 'span', 'woofall' ),
+        'h1'   => __( 'H1', 'woomentor' ),
+        'h2'   => __( 'H2', 'woomentor' ),
+        'h3'   => __( 'H3', 'woomentor' ),
+        'h4'   => __( 'H4', 'woomentor' ),
+        'h5'   => __( 'H5', 'woomentor' ),
+        'h6'   => __( 'H6', 'woomentor' ),
+        'p'    => __( 'p', 'woomentor' ),
+        'div'  => __( 'div', 'woomentor' ),
+        'span' => __( 'span', 'woomentor' ),
     ];
     return $html_tag_list;
 }
@@ -190,7 +190,7 @@ function woofall_html_tag_lists() {
  * HTML Tag Validation
  * return strig
  */
-function woofall_validate_html_tag( $tag ) {
+function woomentor_validate_html_tag( $tag ) {
     $allowed_html_tags = [
         'article',
         'aside',

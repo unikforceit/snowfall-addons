@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WF_Product_Short_Description_Element extends Widget_Base {
+class WM_Product_Short_Description_Element extends Widget_Base {
 
     public function get_name() {
-        return 'wf-single-product-short-description';
+        return 'wm-single-product-short-description';
     }
 
     public function get_title() {
-        return __( 'WF - Product Short Description', 'woofall' );
+        return __( 'WM - Product Short Description', 'woomentor' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WF_Product_Short_Description_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woofall' );
+        return array( 'woomentor' );
     }
 
     public function get_style_depends(){
         return [
-            'woofall-widgets',
+            'woomentor-widgets',
         ];
     }
 
@@ -38,7 +38,7 @@ class WF_Product_Short_Description_Element extends Widget_Base {
         $this->start_controls_section(
             'product_content_style_section',
             array(
-                'label' => __( 'Style', 'woofall' ),
+                'label' => __( 'Style', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
@@ -46,23 +46,23 @@ class WF_Product_Short_Description_Element extends Widget_Base {
             $this->add_responsive_control(
                 'text_align',
                 [
-                    'label' => __( 'Alignment', 'woofall' ),
+                    'label' => __( 'Alignment', 'woomentor' ),
                     'type' => Controls_Manager::CHOOSE,
                     'options' => [
                         'left' => [
-                            'title' => __( 'Left', 'woofall' ),
+                            'title' => __( 'Left', 'woomentor' ),
                             'icon' => 'fa fa-align-left',
                         ],
                         'center' => [
-                            'title' => __( 'Center', 'woofall' ),
+                            'title' => __( 'Center', 'woomentor' ),
                             'icon' => 'fa fa-align-center',
                         ],
                         'right' => [
-                            'title' => __( 'Right', 'woofall' ),
+                            'title' => __( 'Right', 'woomentor' ),
                             'icon' => 'fa fa-align-right',
                         ],
                         'justify' => [
-                            'title' => __( 'Justified', 'woofall' ),
+                            'title' => __( 'Justified', 'woomentor' ),
                             'icon' => 'fa fa-align-justify',
                         ],
                     ],
@@ -75,7 +75,7 @@ class WF_Product_Short_Description_Element extends Widget_Base {
             $this->add_control(
                 'text_color',
                 [
-                    'label' => __( 'Text Color', 'woofall' ),
+                    'label' => __( 'Text Color', 'woomentor' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .woocommerce-product-details__short-description' => 'color: {{VALUE}}',
@@ -88,7 +88,7 @@ class WF_Product_Short_Description_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'text_typography',
-                    'label' => __( 'Typography', 'woofall' ),
+                    'label' => __( 'Typography', 'woomentor' ),
                     'selector' => '{{WRAPPER}} .woocommerce-product-details__short-description,{{WRAPPER}} .woocommerce-product-details__short-description p',
                 ]
             );
@@ -102,7 +102,7 @@ class WF_Product_Short_Description_Element extends Widget_Base {
         global $product;
         $product = wc_get_product();
         if ( Plugin::instance()->editor->is_edit_mode() ) {
-            echo \Woofall_Data::instance()->default( $this->get_name() );
+            echo \Woomentor_Data::instance()->default( $this->get_name() );
         }else{
             if ( empty( $product ) ) {
                 return;
@@ -112,4 +112,4 @@ class WF_Product_Short_Description_Element extends Widget_Base {
     }
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Short_Description_Element() );
+Plugin::instance()->widgets_manager->register_widget_type( new WM_Product_Short_Description_Element() );

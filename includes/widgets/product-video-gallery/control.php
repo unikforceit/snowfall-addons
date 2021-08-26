@@ -4,14 +4,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WF_Product_Video_Gallery_ELement extends Widget_Base {
+class WM_Product_Video_Gallery_ELement extends Widget_Base {
 
     public function get_name() {
-        return 'wf-product-video-gallery';
+        return 'wm-product-video-gallery';
     }
 
     public function get_title() {
-        return __( 'WF - Product Video Gallery', 'woofall' );
+        return __( 'WM - Product Video Gallery', 'woomentor' );
     }
 
     public function get_icon() {
@@ -19,18 +19,18 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woofall' );
+        return array( 'woomentor' );
     }
 
     public function get_style_depends(){
         return [
-            'woofall-widgets',
+            'woomentor-widgets',
         ];
     }
 
     public function get_script_depends() {
         return [
-            'woofall-widgets-scripts',
+            'woomentor-widgets-scripts',
         ];
     }
 
@@ -43,7 +43,7 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
          $this->start_controls_section(
             'product_thumbnails_content',
             array(
-                'label' => __( 'Video Thumbnails', 'woofall' ),
+                'label' => __( 'Video Thumbnails', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -51,23 +51,23 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
             $this->add_control(
                 'tab_thumbnails_position',
                 [
-                    'label'   => __( 'Thumbnails Position', 'woofall' ),
+                    'label'   => __( 'Thumbnails Position', 'woomentor' ),
                     'type'    => Controls_Manager::CHOOSE,
                     'options' => [
                         'left' => [
-                            'title' => __( 'Left', 'woofall' ),
+                            'title' => __( 'Left', 'woomentor' ),
                             'icon'  => 'eicon-h-align-left',
                         ],
                         'right' => [
-                            'title' => __( 'Right', 'woofall' ),
+                            'title' => __( 'Right', 'woomentor' ),
                             'icon'  => 'eicon-h-align-right',
                         ],
                         'top' => [
-                            'title' => __( 'Top', 'woofall' ),
+                            'title' => __( 'Top', 'woomentor' ),
                             'icon'  => 'eicon-v-align-top',
                         ],
                         'bottom' => [
-                            'title' => __( 'Bottom', 'woofall' ),
+                            'title' => __( 'Bottom', 'woomentor' ),
                             'icon'  => 'eicon-v-align-bottom',
                         ],
                     ],
@@ -83,7 +83,7 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
         $this->start_controls_section(
             'product_image_style_section',
             [
-                'label' => __( 'Main Video Area', 'woofall' ),
+                'label' => __( 'Main Video Area', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -119,20 +119,20 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'product_image_border',
-                    'label' => __( 'Product image border', 'woofall' ),
-                    'selector' => '{{WRAPPER}} .woofall-product-gallery-video',
+                    'label' => __( 'Product image border', 'woomentor' ),
+                    'selector' => '{{WRAPPER}} .woomentor-product-gallery-video',
                 ]
             );
 
             $this->add_responsive_control(
                 'product_image_border_radius',
                 [
-                    'label' => __( 'Border Radius', 'woofall' ),
+                    'label' => __( 'Border Radius', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%' ],
                     'selectors' => [
-                        '{{WRAPPER}} .woofall-product-gallery-video img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
-                        '{{WRAPPER}} .woofall-product-gallery-video' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .woomentor-product-gallery-video img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .woomentor-product-gallery-video' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                         '{{WRAPPER}} .embed-responsive' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                     ],
                 ]
@@ -141,11 +141,11 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
             $this->add_responsive_control(
                 'product_margin',
                 [
-                    'label' => __( 'Margin', 'woofall' ),
+                    'label' => __( 'Margin', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em', '%' ],
                     'selectors' => [
-                        '{{WRAPPER}} .woofall-product-gallery-video' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .woomentor-product-gallery-video' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                     ],
                 ]
             );
@@ -156,7 +156,7 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
         $this->start_controls_section(
             'product_image_thumbnails_style_section',
             [
-                'label' => __( 'Thumbnails', 'woofall' ),
+                'label' => __( 'Thumbnails', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -165,20 +165,20 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'product_thumbnais_image_border',
-                    'label' => __( 'Product image border', 'woofall' ),
-                    'selector' => '{{WRAPPER}} .woofall-product-video-tabs li a',
+                    'label' => __( 'Product image border', 'woomentor' ),
+                    'selector' => '{{WRAPPER}} .woomentor-product-video-tabs li a',
                 ]
             );
 
             $this->add_responsive_control(
                 'product_thumbnais_image_border_radius',
                 [
-                    'label' => __( 'Border Radius', 'woofall' ),
+                    'label' => __( 'Border Radius', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%' ],
                     'selectors' => [
-                        '{{WRAPPER}} .woofall-product-video-tabs li a img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
-                        '{{WRAPPER}} .woofall-product-video-tabs li a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .woomentor-product-video-tabs li a img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .woomentor-product-video-tabs li a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                     ],
                 ]
             );
@@ -186,11 +186,11 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
             $this->add_responsive_control(
                 'product_product_thumbnais_padding',
                 [
-                    'label' => __( 'Padding', 'woofall' ),
+                    'label' => __( 'Padding', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em', '%' ],
                     'selectors' => [
-                        '{{WRAPPER}} .woofall-product-video-tabs li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .woomentor-product-video-tabs li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                     ],
                 ]
             );
@@ -202,10 +202,10 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
     protected function render() {
         $settings  = $this->get_settings_for_display();
 
-        $this->add_render_attribute( 'wf_product_thumbnails_attr', 'class', 'wfpro-product-videothumbnails thumbnails-tab-position-'.$settings['tab_thumbnails_position'] );
+        $this->add_render_attribute( 'wm_product_thumbnails_attr', 'class', 'wmpro-product-videothumbnails thumbnails-tab-position-'.$settings['tab_thumbnails_position'] );
 
         if( Plugin::instance()->editor->is_edit_mode() ){
-            $product = wc_get_product( woofall_get_last_product_id() );
+            $product = wc_get_product( woomentor_get_last_product_id() );
         } else{
             global $product;
         }
@@ -218,23 +218,23 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
 
         ?>
 
-        <div <?php echo $this->get_render_attribute_string( 'wf_product_thumbnails_attr' ); ?>>
-            <div class="wf-thumbnails-image-area">
+        <div <?php echo $this->get_render_attribute_string( 'wm_product_thumbnails_attr' ); ?>>
+            <div class="wm-thumbnails-image-area">
 
                     <?php if( $settings['tab_thumbnails_position'] == 'left' || $settings['tab_thumbnails_position'] == 'top' ): ?>
-                        <ul class="woofall-product-video-tabs">
+                        <ul class="woomentor-product-video-tabs">
                             <?php
                                 $j=0;
                                 foreach ( $gallery_images_ids as $thkey => $gallery_attachment_id ) {
                                     $j++;
                                     if( $j == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-                                    $video_url = get_post_meta( $gallery_attachment_id, 'woofall_video_url', true );
+                                    $video_url = get_post_meta( $gallery_attachment_id, 'woomentor_video_url', true );
                                     ?>
-                                    <li class="<?php if( !empty( $video_url ) ){ echo 'wfvideothumb'; }?>">
-                                        <a class="<?php echo $tabactive; ?>" href="#wfvideo-<?php echo $j; ?>">
+                                    <li class="<?php if( !empty( $video_url ) ){ echo 'wmvideothumb'; }?>">
+                                        <a class="<?php echo $tabactive; ?>" href="#wmvideo-<?php echo $j; ?>">
                                             <?php
                                                 if( !empty( $video_url ) ){
-                                                    echo '<span class="wfvideo-button"><i class="sli sli-control-play"></i></span>';
+                                                    echo '<span class="wmvideo-button"><i class="sli sli-control-play"></i></span>';
                                                     echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' );
                                                 }else{
                                                     echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' );
@@ -248,15 +248,15 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
                         </ul>
                     <?php endif; ?>
 
-                    <div class="woofall-product-gallery-video">
+                    <div class="woomentor-product-gallery-video">
                         <?php
                             $i = 0;
                             foreach ( $gallery_images_ids as $thkey => $gallery_attachment_id ) {
                                 $i++;
                                 if( $i == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-                                $video_url = get_post_meta( $gallery_attachment_id, 'woofall_video_url', true );
+                                $video_url = get_post_meta( $gallery_attachment_id, 'woomentor_video_url', true );
                                 ?>
-                                <div class="video-cus-tab-pane <?php echo $tabactive; ?>" id="wfvideo-<?php echo $i; ?>">
+                                <div class="video-cus-tab-pane <?php echo $tabactive; ?>" id="wmvideo-<?php echo $i; ?>">
                                     <?php
                                         if( !empty( $video_url ) ){
                                             ?>
@@ -276,19 +276,19 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
 
                     <?php if( $settings['tab_thumbnails_position'] == 'right' || $settings['tab_thumbnails_position'] == 'bottom' ): ?>
 
-                        <ul class="woofall-product-video-tabs">
+                        <ul class="woomentor-product-video-tabs">
                             <?php
                                 $j=0;
                                 foreach ( $gallery_images_ids as $thkey => $gallery_attachment_id ) {
                                     $j++;
                                     if( $j == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-                                    $video_url = get_post_meta( $gallery_attachment_id, 'woofall_video_url', true );
+                                    $video_url = get_post_meta( $gallery_attachment_id, 'woomentor_video_url', true );
                                     ?>
-                                    <li class="<?php if( !empty( $video_url ) ){ echo 'wfvideothumb'; }?>">
-                                        <a class="<?php echo $tabactive; ?>" href="#wfvideo-<?php echo $j; ?>">
+                                    <li class="<?php if( !empty( $video_url ) ){ echo 'wmvideothumb'; }?>">
+                                        <a class="<?php echo $tabactive; ?>" href="#wmvideo-<?php echo $j; ?>">
                                             <?php
                                                 if( !empty( $video_url ) ){
-                                                    echo '<span class="wfvideo-button"><i class="sli sli-control-play"></i></span>';
+                                                    echo '<span class="wmvideo-button"><i class="sli sli-control-play"></i></span>';
                                                     echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' );
                                                 }else{
                                                     echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' );
@@ -311,4 +311,4 @@ class WF_Product_Video_Gallery_ELement extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Video_Gallery_ELement() );
+Plugin::instance()->widgets_manager->register_widget_type( new WM_Product_Video_Gallery_ELement() );

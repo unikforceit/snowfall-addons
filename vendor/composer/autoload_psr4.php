@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Themepaste\\WoofallAddons\\Includes\\' => array($baseDir . '/includes'),
-    'Themepaste\\WoofallAddons\\Frontend\\' => array($baseDir . '/frontend'),
-    'Themepaste\\WoofallAddons\\Admin\\' => array($baseDir . '/admin'),
+    'UnikForce\\WoomentorAddons\\Includes\\' => array($baseDir . '/includes'),
+    'UnikForce\\WoomentorAddons\\Frontend\\' => array($baseDir . '/frontend'),
+    'UnikForce\\WoomentorAddons\\Admin\\' => array($baseDir . '/admin'),
 );

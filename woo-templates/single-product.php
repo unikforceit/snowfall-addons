@@ -36,16 +36,16 @@ global $post;
 ?>
 
 <div id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="woofall-woo-template-builder">
+	<div class="woomentor-woo-template-builder">
 		<?php
 			/**
 			 * Hook for product builder.
-			 * woofall_woocommerce_product_builder
+			 * woomentor_woocommerce_product_builder
 			 *
-			 * @hooked wf_get_product_content_elementor() - 5.
-			 * @hooked wf_get_default_product_data() - 10.
+			 * @hooked wm_get_product_content_elementor() - 5.
+			 * @hooked wm_get_default_product_data() - 10.
 			 */
-			do_action( 'woofall_woocommerce_product_content', $post );
+			do_action( 'woomentor_woocommerce_product_content', $post );
 		?>
 	</div>
 </div><!-- #product-<?php //the_ID(); ?> -->

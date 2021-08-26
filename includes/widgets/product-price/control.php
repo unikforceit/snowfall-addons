@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WF_Product_Price_Element extends Widget_Base {
+class WM_Product_Price_Element extends Widget_Base {
 
     public function get_name() {
-        return 'wf-single-product-price';
+        return 'wm-single-product-price';
     }
 
     public function get_title() {
-        return __( 'WF - Product Price', 'woofall' );
+        return __( 'WM - Product Price', 'woomentor' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WF_Product_Price_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woofall' );
+        return array( 'woomentor' );
     }
 
     public function get_style_depends(){
         return [
-            'woofall-widgets',
+            'woomentor-widgets',
         ];
     }
 
@@ -37,14 +37,14 @@ class WF_Product_Price_Element extends Widget_Base {
         $this->start_controls_section(
             'product_price_regular_style_section',
             array(
-                'label' => __( 'Price', 'woofall' ),
+                'label' => __( 'Price', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'product_price_color',
                 [
-                    'label'     => __( 'Price Color', 'woofall' ),
+                    'label'     => __( 'Price Color', 'woomentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .price' => 'color: {{VALUE}} !important;',
@@ -56,7 +56,7 @@ class WF_Product_Price_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name'      => 'product_price_typography',
-                    'label'     => __( 'Typography', 'woofall' ),
+                    'label'     => __( 'Typography', 'woomentor' ),
                     'selector'  => '{{WRAPPER}} .price .amount',
                 ]
             );
@@ -64,7 +64,7 @@ class WF_Product_Price_Element extends Widget_Base {
             $this->add_control(
                 'price_margin',
                 [
-                    'label' => __( 'Margin', 'woofall' ),
+                    'label' => __( 'Margin', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -78,14 +78,14 @@ class WF_Product_Price_Element extends Widget_Base {
         $this->start_controls_section(
             'product_price_sale_style_section',
             [
-                'label' => __( 'Old Price', 'woofall' ),
+                'label' => __( 'Old Price', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
             $this->add_control(
                 'product_sale_price_color',
                 [
-                    'label'     => __( 'Price Color', 'woofall' ),
+                    'label'     => __( 'Price Color', 'woomentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .price del' => 'color: {{VALUE}} !important;',
@@ -97,7 +97,7 @@ class WF_Product_Price_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 array(
                     'name'      => 'product_sale_price_typography',
-                    'label'     => __( 'Typography', 'woofall' ),
+                    'label'     => __( 'Typography', 'woomentor' ),
                     'selector'  => '{{WRAPPER}} .price del, {{WRAPPER}} .price del .amount',
                 )
             );
@@ -115,7 +115,7 @@ class WF_Product_Price_Element extends Widget_Base {
         $product = wc_get_product();
 
         if( Plugin::instance()->editor->is_edit_mode() ){
-            echo \Woofall_Data::instance()->default( $this->get_name() );
+            echo \Woomentor_Data::instance()->default( $this->get_name() );
         }else{
             if ( empty( $product ) ) { return; }
             woocommerce_template_single_price();
@@ -125,4 +125,4 @@ class WF_Product_Price_Element extends Widget_Base {
     }
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Price_Element() );
+Plugin::instance()->widgets_manager->register_widget_type( new WM_Product_Price_Element() );

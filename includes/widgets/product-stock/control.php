@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WF_Product_Stock_Element extends Widget_Base {
+class WM_Product_Stock_Element extends Widget_Base {
 
     public function get_name() {
-        return 'wf-single-product-stock';
+        return 'wm-single-product-stock';
     }
 
     public function get_title() {
-        return __( 'WF - Product Stock', 'woofall' );
+        return __( 'WM - Product Stock', 'woomentor' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WF_Product_Stock_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woofall' );
+        return array( 'woomentor' );
     }
 
     public function get_style_depends(){
         return [
-            'woofall-widgets',
+            'woomentor-widgets',
         ];
     }
 
@@ -37,14 +37,14 @@ class WF_Product_Stock_Element extends Widget_Base {
         $this->start_controls_section(
             'product_stock_style_section',
             array(
-                'label' => __( 'Style', 'woofall' ),
+                'label' => __( 'Style', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'stock_text_color',
                 [
-                    'label' => __( 'Text Color', 'woofall' ),
+                    'label' => __( 'Text Color', 'woomentor' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '.woocommerce {{WRAPPER}} .stock' => 'color: {{VALUE}} !important',
@@ -56,7 +56,7 @@ class WF_Product_Stock_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'stock_text_typography',
-                    'label' => __( 'Typography', 'woofall' ),
+                    'label' => __( 'Typography', 'woomentor' ),
                     'selector' => '.woocommerce {{WRAPPER}} .stock',
                 ]
             );
@@ -64,7 +64,7 @@ class WF_Product_Stock_Element extends Widget_Base {
             $this->add_responsive_control(
                 'stock_margin',
                 [
-                    'label' => __( 'Margin', 'woofall' ),
+                    'label' => __( 'Margin', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -85,7 +85,7 @@ class WF_Product_Stock_Element extends Widget_Base {
         $product = wc_get_product();
         
         if( Plugin::instance()->editor->is_edit_mode() ){
-            echo \Woofall_Data::instance()->default( $this->get_name() );
+            echo \Woomentor_Data::instance()->default( $this->get_name() );
         } else{
             if ( empty( $product ) ) { return; }
             echo wc_get_stock_html( $product );
@@ -95,4 +95,4 @@ class WF_Product_Stock_Element extends Widget_Base {
     }
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Stock_Element() );
+Plugin::instance()->widgets_manager->register_widget_type( new WM_Product_Stock_Element() );

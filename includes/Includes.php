@@ -1,10 +1,10 @@
 <?php
 
-namespace Themepaste\WoofallAddons\Includes;
+namespace UnikForce\WoomentorAddons\Includes;
 
 /**
  * Class Includes
- * @package Themepaste\WoofallAddons\Includes
+ * @package UnikForce\WoomentorAddons\Includes
  */
 class Includes
 {
@@ -19,7 +19,7 @@ class Includes
      */
     public function elementor_load_widgets()
     {
-        foreach (glob(WOOFALL_ADDONS_PL_PATH . 'includes/widgets/*/control.php') as $file) {
+        foreach (glob(WOOMENTOR_ADDONS_PL_PATH . 'includes/widgets/*/control.php') as $file) {
             include_once $file;
         }
     }

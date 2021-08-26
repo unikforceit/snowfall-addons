@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WF_Product_Image_Element extends Widget_Base {
+class WM_Product_Image_Element extends Widget_Base {
 
     public function get_name() {
-        return 'wf-single-product-image';
+        return 'wm-single-product-image';
     }
 
     public function get_title() {
-        return __( 'WF - Product Image', 'woofall' );
+        return __( 'WM - Product Image', 'woomentor' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WF_Product_Image_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woofall' );
+        return array( 'woomentor' );
     }
 
     public function get_style_depends(){
         return [
-            'woofall-widgets',
+            'woomentor-widgets',
         ];
     }
 
@@ -37,7 +37,7 @@ class WF_Product_Image_Element extends Widget_Base {
         $this->start_controls_section(
             'product_image_style_section',
             array(
-                'label' => __( 'Image', 'woofall' ),
+                'label' => __( 'Image', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
@@ -54,7 +54,7 @@ class WF_Product_Image_Element extends Widget_Base {
             $this->add_responsive_control(
                 'product_image_border_radius',
                 [
-                    'label' => __( 'Border Radius', 'woofall' ),
+                    'label' => __( 'Border Radius', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%' ],
                     'selectors' => [
@@ -67,7 +67,7 @@ class WF_Product_Image_Element extends Widget_Base {
             $this->add_responsive_control(
                 'product_margin',
                 [
-                    'label' => __( 'Margin', 'woofall' ),
+                    'label' => __( 'Margin', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -82,7 +82,7 @@ class WF_Product_Image_Element extends Widget_Base {
         $this->start_controls_section(
             'product_thumbnails_image_style_section',
             array(
-                'label' => __( 'Thumbnails', 'woofall' ),
+                'label' => __( 'Thumbnails', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
@@ -91,7 +91,7 @@ class WF_Product_Image_Element extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'product_thumbnails_border',
-                    'label' => __( 'Thumbnails Border', 'woofall' ),
+                    'label' => __( 'Thumbnails Border', 'woomentor' ),
                     'selector' => '{{WRAPPER}} .flex-control-thumbs img',
                 ]
             );
@@ -99,7 +99,7 @@ class WF_Product_Image_Element extends Widget_Base {
             $this->add_responsive_control(
                 'product_thumbnails_border_radius',
                 [
-                    'label' => __( 'Border Radius', 'woofall' ),
+                    'label' => __( 'Border Radius', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%' ],
                     'selectors' => [
@@ -111,7 +111,7 @@ class WF_Product_Image_Element extends Widget_Base {
             $this->add_control(
                 'product_thumbnails_spacing',
                 [
-                    'label' => __( 'Spacing', 'woofall' ),
+                    'label' => __( 'Spacing', 'woomentor' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -133,7 +133,7 @@ class WF_Product_Image_Element extends Widget_Base {
         $product = wc_get_product();
 
         if( Plugin::instance()->editor->is_edit_mode() ){
-            echo \Woofall_Data::instance()->default( $this->get_name() );
+            echo \Woomentor_Data::instance()->default( $this->get_name() );
         } else{
             if ( empty( $product ) ) { return; }
             /**
@@ -148,4 +148,4 @@ class WF_Product_Image_Element extends Widget_Base {
     }
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Image_Element() );
+Plugin::instance()->widgets_manager->register_widget_type( new WM_Product_Image_Element() );

@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WF_Product_Title_Element extends Widget_Base {
+class WM_Product_Title_Element extends Widget_Base {
 
     public function get_name() {
-        return 'wf-single-product-title';
+        return 'wm-single-product-title';
     }
 
     public function get_title() {
-        return __( 'WF - Product title', 'woofall' );
+        return __( 'WM - Product title', 'woomentor' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WF_Product_Title_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woofall' );
+        return array( 'woomentor' );
     }
 
     public function get_style_depends(){
         return [
-            'woofall-widgets',
+            'woomentor-widgets',
         ];
     }
 
@@ -36,17 +36,17 @@ class WF_Product_Title_Element extends Widget_Base {
 
         // Slider Button stle
         $this->start_controls_section(
-            'wf_product_title_content',
+            'wm_product_title_content',
             [
-                'label' => __( 'Product Title', 'woofall' ),
+                'label' => __( 'Product Title', 'woomentor' ),
             ]
         );
             $this->add_control(
-                'wf_product_title_html_tag',
+                'wm_product_title_html_tag',
                 [
-                    'label'   => __( 'Title HTML Tag', 'woofall' ),
+                    'label'   => __( 'Title HTML Tag', 'woomentor' ),
                     'type'    => Controls_Manager::SELECT,
-                    'options' => woofall_html_tag_lists(),
+                    'options' => woomentor_html_tag_lists(),
                     'default' => 'h2',
                 ]
             );
@@ -57,18 +57,18 @@ class WF_Product_Title_Element extends Widget_Base {
         $this->start_controls_section(
             'product_style_section',
             array(
-                'label' => __( 'Product Title', 'woofall' ),
+                'label' => __( 'Product Title', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
 
             $this->add_control(
-                'wf_product_title_color',
+                'wm_product_title_color',
                 [
-                    'label'     => __( 'Title Color', 'woofall' ),
+                    'label'     => __( 'Title Color', 'woomentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .wf_product_title' => 'color: {{VALUE}} !important;',
+                        '{{WRAPPER}} .wm_product_title' => 'color: {{VALUE}} !important;',
                     ],
                 ]
             );
@@ -76,41 +76,41 @@ class WF_Product_Title_Element extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 array(
-                    'name'      => 'wf_product_title_typography',
-                    'label'     => __( 'Typography', 'woofall' ),
-                    'selector'  => '{{WRAPPER}} .wf_product_title',
+                    'name'      => 'wm_product_title_typography',
+                    'label'     => __( 'Typography', 'woomentor' ),
+                    'selector'  => '{{WRAPPER}} .wm_product_title',
                 )
             );
 
             $this->add_responsive_control(
-                'wf_product_title_margin',
+                'wm_product_title_margin',
                 [
-                    'label' => __( 'Margin', 'woofall' ),
+                    'label' => __( 'Margin', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .wf_product_title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+                        '{{WRAPPER}} .wm_product_title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
                     ],
                     'separator' => 'before',
                 ]
             );
 
             $this->add_responsive_control(
-                'wf_product_title_align',
+                'wm_product_title_align',
                 [
-                    'label'        => __( 'Alignment', 'woofall' ),
+                    'label'        => __( 'Alignment', 'woomentor' ),
                     'type'         => Controls_Manager::CHOOSE,
                     'options'      => [
                         'left'   => [
-                            'title' => __( 'Left', 'woofall' ),
+                            'title' => __( 'Left', 'woomentor' ),
                             'icon'  => 'fa fa-align-left',
                         ],
                         'center' => [
-                            'title' => __( 'Center', 'woofall' ),
+                            'title' => __( 'Center', 'woomentor' ),
                             'icon'  => 'fa fa-align-center',
                         ],
                         'right'  => [
-                            'title' => __( 'Right', 'woofall' ),
+                            'title' => __( 'Right', 'woomentor' ),
                             'icon'  => 'fa fa-align-right',
                         ],
                     ],
@@ -126,16 +126,16 @@ class WF_Product_Title_Element extends Widget_Base {
     protected function render( $instance = [] ) {
         $settings   = $this->get_settings_for_display();
 
-        $title_html_tag = woofall_validate_html_tag( $settings['wf_product_title_html_tag'] );
+        $title_html_tag = woomentor_validate_html_tag( $settings['wm_product_title_html_tag'] );
 
         if( Plugin::instance()->editor->is_edit_mode() ){
-            $title = get_the_title( woofall_get_last_product_id() );
-            echo sprintf( "<%s class='wf_product_title entry-title'>%s</%s>", $title_html_tag, $title, $title_html_tag );
+            $title = get_the_title( woomentor_get_last_product_id() );
+            echo sprintf( "<%s class='wm_product_title entry-title'>%s</%s>", $title_html_tag, $title, $title_html_tag );
         }else{
-            echo sprintf( "<%s class='wf_product_title entry-title'>%s</%s>", $title_html_tag, get_the_title(), $title_html_tag  );
+            echo sprintf( "<%s class='wm_product_title entry-title'>%s</%s>", $title_html_tag, get_the_title(), $title_html_tag  );
         }
 
     }
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Title_Element() );
+Plugin::instance()->widgets_manager->register_widget_type( new WM_Product_Title_Element() );

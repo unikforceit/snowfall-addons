@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WF_Product_Rating_Element extends Widget_Base {
+class WM_Product_Rating_Element extends Widget_Base {
 
     public function get_name() {
-        return 'wf-single-product-rating';
+        return 'wm-single-product-rating';
     }
 
     public function get_title() {
-        return __( 'WF - Product Rating', 'woofall' );
+        return __( 'WM - Product Rating', 'woomentor' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WF_Product_Rating_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woofall' );
+        return array( 'woomentor' );
     }
 
     public function get_style_depends(){
         return [
-            'woofall-widgets',
+            'woomentor-widgets',
         ];
     }
 
@@ -37,14 +37,14 @@ class WF_Product_Rating_Element extends Widget_Base {
         $this->start_controls_section(
             'product_rating_style_section',
             array(
-                'label' => __( 'Style', 'woofall' ),
+                'label' => __( 'Style', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'product_rating_color',
                 [
-                    'label'     => __( 'Star Color', 'woofall' ),
+                    'label'     => __( 'Star Color', 'woomentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .star-rating' => 'color: {{VALUE}} !important;',
@@ -56,7 +56,7 @@ class WF_Product_Rating_Element extends Widget_Base {
             $this->add_control(
                 'product_rating_text_color',
                 [
-                    'label'     => __( 'Link Color', 'woofall' ),
+                    'label'     => __( 'Link Color', 'woomentor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} a.woocommerce-review-link' => 'color: {{VALUE}} !important;',
@@ -68,7 +68,7 @@ class WF_Product_Rating_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 array(
                     'name'      => 'product_rating_link_typography',
-                    'label'     => __( 'Link Typography', 'woofall' ),
+                    'label'     => __( 'Link Typography', 'woomentor' ),
                     'selector'  => '{{WRAPPER}} a.woocommerce-review-link',
                 )
             );
@@ -76,7 +76,7 @@ class WF_Product_Rating_Element extends Widget_Base {
             $this->add_control(
                 'rating_margin',
                 [
-                    'label' => __( 'Margin', 'woofall' ),
+                    'label' => __( 'Margin', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -97,7 +97,7 @@ class WF_Product_Rating_Element extends Widget_Base {
         $product = wc_get_product();
 
         if( Plugin::instance()->editor->is_edit_mode() ){
-            echo \Woofall_Data::instance()->default( $this->get_name() );
+            echo \Woomentor_Data::instance()->default( $this->get_name() );
         } else{
             if ( empty( $product ) ) { return; }
             woocommerce_template_single_rating();
@@ -106,4 +106,4 @@ class WF_Product_Rating_Element extends Widget_Base {
     }
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Rating_Element() );
+Plugin::instance()->widgets_manager->register_widget_type( new WM_Product_Rating_Element() );

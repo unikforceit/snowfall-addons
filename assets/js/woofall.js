@@ -26,5 +26,5 @@
         }
     });
 
-console.log('Woofall Js loaded')
+console.log('Woomentor Js loaded')
 })(jQuery);

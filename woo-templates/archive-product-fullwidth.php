@@ -33,7 +33,7 @@ get_header( 'shop' );
      */
     do_action( 'elementor/page_templates/header-footer/before_content' );
 
-        do_action( 'woofall_woocommerce_archive_product_content' );
+        do_action( 'woomentor_woocommerce_archive_product_content' );
 
     do_action( 'elementor/page_templates/header-footer/after_content' );
 

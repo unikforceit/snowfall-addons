@@ -7,32 +7,32 @@ namespace Composer\Autoload;
 class ComposerStaticInitc8ab8da1e405711f9828950eadd54b65
 {
     public static $files = array (
-        'd679d879b31f3f051fbd5f4c751444d0' => __DIR__ . '/../..' . '/includes/framework/codestar-framework.php',
-        '1e97952617f4527bc22aaa8d48187587' => __DIR__ . '/../..' . '/helpers/helpers.php',
-        '822fc38450a8ec36263f0af2cc27e0dd' => __DIR__ . '/../..' . '/helpers/admin-options.php',
-        'e168f513757ee52f161fe0d3b6f615ab' => __DIR__ . '/../..' . '/includes/builder-functions.php',
-        '1c51f1f3e3b3fa0b9efdd4aaba78dade' => __DIR__ . '/../..' . '/includes/woo-data.php',
+        '111819d553d221c784a49938210b7817' => __DIR__ . '/../..' . '/includes/framework/codestar-framework.php',
+        '29bae1b554520dc94968417834d4d16c' => __DIR__ . '/../..' . '/helpers/helpers.php',
+        '481104f3d9fbaba376ecacf56b6b2a21' => __DIR__ . '/../..' . '/helpers/admin-options.php',
+        '2f982818a4caf06d926cb3eb8e2a1bbf' => __DIR__ . '/../..' . '/includes/builder-functions.php',
+        '136f38b58999558c48002b4f998f12a2' => __DIR__ . '/../..' . '/includes/woo-data.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        'U' => 
         array (
-            'Themepaste\\WoofallAddons\\Includes\\' => 34,
-            'Themepaste\\WoofallAddons\\Frontend\\' => 34,
-            'Themepaste\\WoofallAddons\\Admin\\' => 31,
+            'UnikForce\\WoomentorAddons\\Includes\\' => 35,
+            'UnikForce\\WoomentorAddons\\Frontend\\' => 35,
+            'UnikForce\\WoomentorAddons\\Admin\\' => 32,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Themepaste\\WoofallAddons\\Includes\\' => 
+        'UnikForce\\WoomentorAddons\\Includes\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
-        'Themepaste\\WoofallAddons\\Frontend\\' => 
+        'UnikForce\\WoomentorAddons\\Frontend\\' => 
         array (
             0 => __DIR__ . '/../..' . '/frontend',
         ),
-        'Themepaste\\WoofallAddons\\Admin\\' => 
+        'UnikForce\\WoomentorAddons\\Admin\\' => 
         array (
             0 => __DIR__ . '/../..' . '/admin',
         ),
@@ -40,9 +40,6 @@ class ComposerStaticInitc8ab8da1e405711f9828950eadd54b65
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Themepaste\\WoofallAddons\\Admin\\Admin' => __DIR__ . '/../..' . '/admin/Admin.php',
-        'Themepaste\\WoofallAddons\\Frontend\\Frontend' => __DIR__ . '/../..' . '/frontend/Frontend.php',
-        'Themepaste\\WoofallAddons\\Includes\\Includes' => __DIR__ . '/../..' . '/includes/Includes.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

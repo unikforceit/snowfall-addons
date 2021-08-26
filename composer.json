@@ -1,11 +1,11 @@
 {
-    "name": "themepaste/woofall-addons",
-    "description": "Woofall addons is a complete woocommerce solutions with elementor and other building features.",
+    "name": "unikforce/woomentor-addons",
+    "description": "Woomentor addons is a complete woocommerce solutions with elementor and other building features.",
     "autoload": {
         "psr-4": {
-            "Themepaste\\WoofallAddons\\Admin\\": "admin/",
-            "Themepaste\\WoofallAddons\\Frontend\\": "frontend/",
-            "Themepaste\\WoofallAddons\\Includes\\": "includes/"
+            "UnikForce\\WoomentorAddons\\Admin\\": "admin/",
+            "UnikForce\\WoomentorAddons\\Frontend\\": "frontend/",
+            "UnikForce\\WoomentorAddons\\Includes\\": "includes/"
         },
         "files": [
             "includes/framework/codestar-framework.php",
@@ -17,8 +17,8 @@
     },
     "authors": [
         {
-            "name": "themepaste",
-            "email": "contact@themepaste.com"
+            "name": "unikforce",
+            "email": "contact@unikforce.com"
         }
     ],
     "require": {}

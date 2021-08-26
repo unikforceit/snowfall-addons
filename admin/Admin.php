@@ -1,10 +1,10 @@
 <?php
 
-namespace Themepaste\WoofallAddons\Admin;
+namespace UnikForce\WoomentorAddons\Admin;
 
 /**
  * Class Admin
- * @package Themepaste\WoofallAddons\Admin
+ * @package UnikForce\WoomentorAddons\Admin
  */
 class Admin
 {
@@ -12,7 +12,7 @@ class Admin
     {
         add_action('elementor/init', array($this, 'elementor_category'));
         add_action('template_redirect', array($this, 'elementor_template_redirect'), 9);
-        //add_filter('plugin_action_links_' . WOOFALL_PLUGIN_BASE, [$this, 'plugins_setting_links']);
+        //add_filter('plugin_action_links_' . WOOMENTOR_PLUGIN_BASE, [$this, 'plugins_setting_links']);
         //add_filter('plugin_row_meta', array($this, 'plugin_meta_links'), 10, 2);
         add_filter('admin_footer_text', array($this, 'admin_footer_text'));
         add_action('admin_enqueue_scripts', [$this, 'admin_css']);
@@ -50,7 +50,7 @@ class Admin
         ?>
         <div class="notice notice-warning is-dismissible">
             <p>
-                <strong><?php esc_html_e(WOOFALL_ITEM_NAME . ' requires Elementor to be installed and activated.', 'woofall'); ?></strong>
+                <strong><?php esc_html_e(WOOMENTOR_ITEM_NAME . ' requires Elementor to be installed and activated.', 'woomentor'); ?></strong>
             </p>
             <br>
             <a class="button button-primary"
@@ -86,7 +86,7 @@ class Admin
         ?>
         <div class="notice notice-warning is-dismissible">
             <p>
-                <strong><?php esc_html_e(WOOFALL_ITEM_NAME . ' requires WooCommerce to be installed and activated.', 'woofall'); ?></strong>
+                <strong><?php esc_html_e(WOOMENTOR_ITEM_NAME . ' requires WooCommerce to be installed and activated.', 'woomentor'); ?></strong>
             </p>
             <br>
             <a class="button button-primary"
@@ -102,7 +102,7 @@ class Admin
      */
     public function admin_css()
     {
-        wp_enqueue_style('admin-style', WOOFALL_ADDONS_PL_URL . 'assets/css/admin.css', array(), filemtime(WOOFALL_PLUGIN_DIR_NAME . 'assets/css/admin.css'), 'all');
+        wp_enqueue_style('admin-style', WOOMENTOR_ADDONS_PL_URL . 'assets/css/admin.css', array(), filemtime(WOOMENTOR_PLUGIN_DIR_NAME . 'assets/css/admin.css'), 'all');
     }
 
     /**
@@ -121,9 +121,9 @@ class Admin
     public function elementor_category()
     {
         \Elementor\Plugin::instance()->elements_manager->add_category(
-            'woofall',
+            'woomentor',
             array(
-                'title' => __('Woofall', 'woofall'),
+                'title' => __('Woomentor', 'woomentor'),
                 'icon' => 'fa fa-plug',
             ),
             1);
@@ -136,10 +136,10 @@ class Admin
      */
     public function plugins_setting_links($links)
     {
-        $settings_link = '<a href="' . admin_url('admin.php?page=woofall') . '">' . esc_html__('Settings', 'woofall') . '</a>';
+        $settings_link = '<a href="' . admin_url('admin.php?page=woomentor') . '">' . esc_html__('Settings', 'woomentor') . '</a>';
         array_unshift($links, $settings_link);
-        if (!is_plugin_active('woofall-addons-pro/woofall-addons-pro.php')) {
-            $links['woofall'] = sprintf('<a href="https://themepaste.com" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro', 'woofall') . '</a>');
+        if (!is_plugin_active('woomentor-addons-pro/woomentor-addons-pro.php')) {
+            $links['woomentor'] = sprintf('<a href="https://unikforce.com" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro', 'woomentor') . '</a>');
         }
         return $links;
     }
@@ -158,14 +158,14 @@ class Admin
             return $links;
         }
 
-        $links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/woofall-addons" title="' . __('Get help', 'woofall') . '">' . __('Support', 'woofall') . '</a>';
-        $links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/woofall-addons/reviews/#new-post" title="' . __('Rate the plugin', 'woofall') . '">' . __('Rate the plugin ★★★★★', 'woofall') . '</a>';
+        $links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/woomentor-addons" title="' . __('Get help', 'woomentor') . '">' . __('Support', 'woomentor') . '</a>';
+        $links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/woomentor-addons/reviews/#new-post" title="' . __('Rate the plugin', 'woomentor') . '">' . __('Rate the plugin ★★★★★', 'woomentor') . '</a>';
 
         return $links;
     }
 
     /**
-     * Test if we're on woofall's admin page
+     * Test if we're on woomentor's admin page
      *
      * @return bool
      */
@@ -192,7 +192,7 @@ class Admin
      */
     function generate_web_link($placement = '', $page = '/', $params = array(), $anchor = '')
     {
-        $base_url = 'https://themepaste.com';
+        $base_url = 'https://unikforce.com';
 
         if ('/' != $page) {
             $page = '/' . trim($page, '/') . '/';
@@ -230,7 +230,7 @@ class Admin
             return $text;
         }
 
-        $text = '<i><a href="' . esc_url($this->generate_web_link('admin_footer')) . '" title="' . esc_attr(__('Visit WooFall Addons page for more info', 'woofall')) . '" target="_blank">WooFall Addons</a> v' . WOOFALL_VERSION . '. Please <a target="_blank" href="https://wordpress.org/support/plugin/woofall-addons/reviews/#new-post" title="Rate the plugin">rate the plugin <span>★★★★★</span></a> to help us spread the word. Thank you from the WP Reset team!</i>';
+        $text = '<i><a href="' . esc_url($this->generate_web_link('admin_footer')) . '" title="' . esc_attr(__('Visit WooMentor Addons page for more info', 'woomentor')) . '" target="_blank">WooMentor Addons</a> v' . WOOMENTOR_VERSION . '. Please <a target="_blank" href="https://wordpress.org/support/plugin/woomentor-addons/reviews/#new-post" title="Rate the plugin">rate the plugin <span>★★★★★</span></a> to help us spread the word. Thank you from the WP Reset team!</i>';
 
         return $text;
     } // admin_footer_text

@@ -1699,9 +1699,9 @@ CSF::createSection( $prefix, array(
       'id'       => 'code_editor_2',
       'type'     => 'code_editor',
       'title'    => 'Code Editor',
-      'subtitle' => '<strong>HTML Editor</strong> Using: theme: shadowfox and mode: htmlmixed',
+      'subtitle' => '<strong>HTML Editor</strong> Using: theme: shadowmox and mode: htmlmixed',
       'settings' => array(
-        'theme'  => 'shadowfox',
+        'theme'  => 'shadowmox',
         'mode'   => 'htmlmixed',
       ),
       'default'  =>'<div class="wrapper">

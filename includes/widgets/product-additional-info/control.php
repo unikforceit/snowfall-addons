@@ -3,14 +3,14 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class WF_Product_Additional_Info_Element extends Widget_Base {
+class WM_Product_Additional_Info_Element extends Widget_Base {
 
     public function get_name() {
-        return 'wf-product-additional-information';
+        return 'wm-product-additional-information';
     }
 
     public function get_title() {
-        return __( 'WF - Product Additional Information', 'woofall' );
+        return __( 'WM - Product Additional Information', 'woomentor' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WF_Product_Additional_Info_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woofall' );
+        return array( 'woomentor' );
     }
 
     public function get_style_depends(){
         return [
-            'woofall-widgets',
+            'woomentor-widgets',
         ];
     }
 
@@ -38,21 +38,21 @@ class WF_Product_Additional_Info_Element extends Widget_Base {
         $this->start_controls_section(
             'addition_info_content',
             [
-                'label' => __( 'Heading', 'woofall' ),
+                'label' => __( 'Heading', 'woomentor' ),
             ]
         );
             
             $this->add_control(
-                'wf_show_heading',
+                'wm_show_heading',
                 [
-                    'label' => __( 'Heading', 'woofall' ),
+                    'label' => __( 'Heading', 'woomentor' ),
                     'type' => Controls_Manager::SWITCHER,
-                    'label_on' => __( 'Show', 'woofall' ),
-                    'label_off' => __( 'Hide', 'woofall' ),
+                    'label_on' => __( 'Show', 'woomentor' ),
+                    'label_off' => __( 'Hide', 'woomentor' ),
                     'render_type' => 'ui',
                     'return_value' => 'yes',
                     'default' => 'yes',
-                    'prefix_class' => 'wf-show-heading-',
+                    'prefix_class' => 'wm-show-heading-',
                 ]
             );
 
@@ -62,20 +62,20 @@ class WF_Product_Additional_Info_Element extends Widget_Base {
         $this->start_controls_section(
             'heading_style_section',
             array(
-                'label' => __( 'Heading', 'woofall' ),
+                'label' => __( 'Heading', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'heading_color',
                 [
-                    'label' => __( 'Color', 'woofall' ),
+                    'label' => __( 'Color', 'woomentor' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '.woocommerce {{WRAPPER}} h2' => 'color: {{VALUE}}',
                     ],
                     'condition' => [
-                        'wf_show_heading!' => '',
+                        'wm_show_heading!' => '',
                     ],
                 ]
             );
@@ -84,10 +84,10 @@ class WF_Product_Additional_Info_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'heading_typography',
-                    'label' => __( 'Typography', 'woofall' ),
+                    'label' => __( 'Typography', 'woomentor' ),
                     'selector' => '.woocommerce {{WRAPPER}} h2',
                     'condition' => [
-                        'wf_show_heading!' => '',
+                        'wm_show_heading!' => '',
                     ],
                 ]
             );
@@ -95,7 +95,7 @@ class WF_Product_Additional_Info_Element extends Widget_Base {
             $this->add_responsive_control(
                 'heading_margin',
                 [
-                    'label' => __( 'Margin', 'woofall' ),
+                    'label' => __( 'Margin', 'woomentor' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
@@ -110,14 +110,14 @@ class WF_Product_Additional_Info_Element extends Widget_Base {
         $this->start_controls_section(
             'content_style_section',
             array(
-                'label' => __( 'Content', 'woofall' ),
+                'label' => __( 'Content', 'woomentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'content_color',
                 [
-                    'label' => __( 'Color', 'woofall' ),
+                    'label' => __( 'Color', 'woomentor' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '.woocommerce {{WRAPPER}} .shop_attributes' => 'color: {{VALUE}}',
@@ -130,7 +130,7 @@ class WF_Product_Additional_Info_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'content_typography',
-                    'label' => __( 'Typography', 'woofall' ),
+                    'label' => __( 'Typography', 'woomentor' ),
                     'selector' => '.woocommerce {{WRAPPER}} .shop_attributes',
                 ]
             ); 
@@ -144,7 +144,7 @@ class WF_Product_Additional_Info_Element extends Widget_Base {
 
         $settings   = $this->get_settings_for_display();
         if ( Plugin::instance()->editor->is_edit_mode() ) {
-            echo \Woofall_Data::instance()->default( $this->get_name() );
+            echo \Woomentor_Data::instance()->default( $this->get_name() );
         } else{
             global $product;
             $product = wc_get_product();
@@ -157,4 +157,4 @@ class WF_Product_Additional_Info_Element extends Widget_Base {
     }
 
 }
-Plugin::instance()->widgets_manager->register_widget_type( new WF_Product_Additional_Info_Element() );
+Plugin::instance()->widgets_manager->register_widget_type( new WM_Product_Additional_Info_Element() );
