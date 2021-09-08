@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: Woomentor - WooCommerce Elementor Addons + Builder
- * Description: The WooCommerce elements library for Elementor page builder plugin for WordPress.
- * Plugin URI:  https://wordpress.org/plugins/woomentor-addons/
+ * Plugin Name: UnikForce Elementor WooCommerce Builder
+ * Description: UnikForce Elementor WooCommerceCommerce elements library for Elementor page builder plugin for WordPress.
+ * Plugin URI:  https://wordpress.org/plugins/unikforce-elementor-woocommerce/
  * Version:     1.0.0
  * Author:      UnikForce IT
  * Author URI:  https://unikforce.com/
  * License:     GPLv3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
- * Text Domain: woomentor
+ * Text Domain: unikforce
  * WC tested up to: 5.5.2
  * Elementor tested up to: 3.3.1
  * Elementor Pro tested up to: 3.3.4
@@ -21,9 +21,9 @@ require_once (__DIR__ . '/vendor/autoload.php');
 include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
 /**
- * Class Woomentor
+ * Class UnikForce
  */
-final class WOOMENTOR_ADDONS
+final class UNIKFORCE
 {
     /**
      * Plugin Version
@@ -47,9 +47,9 @@ final class WOOMENTOR_ADDONS
     }
 
     /**
-     * Main Woomentor Instance
+     * Main UnikForce Instance
      *
-     * Insures that only one instance of Woomentor exists in memory at any one
+     * Insures that only one instance of UnikForce exists in memory at any one
      * time. Also prevents needing to define globals all over the place.
      */
 
@@ -69,14 +69,14 @@ final class WOOMENTOR_ADDONS
      */
     public function define_constants()
     {
-        define('WOOMENTOR_VERSION', self::VERSION);
-        define('WOOMENTOR_ADDONS_PL_ROOT', __FILE__);
-        define('WOOMENTOR_ADDONS_PL_URL', plugins_url('/', WOOMENTOR_ADDONS_PL_ROOT));
-        define('WOOMENTOR_ADDONS_PL_PATH', plugin_dir_path(WOOMENTOR_ADDONS_PL_ROOT));
-        define('WOOMENTOR_ADDONS_DIR_URL', plugin_dir_url(WOOMENTOR_ADDONS_PL_ROOT));
-        define('WOOMENTOR_PLUGIN_BASE', plugin_basename(WOOMENTOR_ADDONS_PL_ROOT));
-        define('WOOMENTOR_PLUGIN_DIR_NAME', dirname(__FILE__) . '/');
-        define('WOOMENTOR_ITEM_NAME', 'Woomentor - WooCommerce Elementor Addons + Builder');
+        define('UNIKFORCE_VERSION', self::VERSION);
+        define('UNIKFORCE_PL_ROOT', __FILE__);
+        define('UNIKFORCE_PL_URL', plugins_url('/', UNIKFORCE_PL_ROOT));
+        define('UNIKFORCE_PL_PATH', plugin_dir_path(UNIKFORCE_PL_ROOT));
+        define('UNIKFORCE_DIR_URL', plugin_dir_url(UNIKFORCE_PL_ROOT));
+        define('UNIKFORCE_PLUGIN_BASE', plugin_basename(UNIKFORCE_PL_ROOT));
+        define('UNIKFORCE_PLUGIN_DIR_NAME', dirname(__FILE__) . '/');
+        define('UNIKFORCE_ITEM_NAME', 'UnikForce Elementor WooCommerce Builder');
     }
 
     /**
@@ -87,9 +87,9 @@ final class WOOMENTOR_ADDONS
     public function init_plugin()
     {
 
-        new UnikForce\WoomentorAddons\Admin\Admin();
-        new UnikForce\WoomentorAddons\Frontend\Frontend();
-        new UnikForce\WoomentorAddons\Includes\Includes();
+        new UnikForce\UnikForce\Admin\Admin();
+        new UnikForce\UnikForce\Frontend\Frontend();
+        new UnikForce\UnikForce\Includes\Includes();
 
     }
 
@@ -99,13 +99,13 @@ final class WOOMENTOR_ADDONS
     public function activate()
     {
 
-        $installed = get_option('woomentor_addons_installed');
+        $installed = get_option('unikforce_installed');
 
         if (!$installed) {
-            update_option('woomentor_addons_installed', time());
+            update_option('unikforce_installed', time());
         }
 
-        update_option('woomentor_addons_version', WOOMENTOR_VERSION);
+        update_option('unikforce_version', UNIKFORCE_VERSION);
     }
 
     /**
@@ -117,7 +117,7 @@ final class WOOMENTOR_ADDONS
     public function __clone()
     {
         // Cloning instances of the class is forbidden
-        _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'woomentor'), '1.0.0');
+        _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'unikforce'), '1.0.0');
     }
 
     /**
@@ -127,15 +127,15 @@ final class WOOMENTOR_ADDONS
     public function __wakeup()
     {
         // Unserializing instances of the class is forbidden
-        _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'woomentor'), '1.0.0');
+        _doing_it_wrong(__FUNCTION__, __('Cheatin&#8217; huh?', 'unikforce'), '1.0.0');
     }
 
 }
 
-function WOOMENTOR_ADDONS_INIT()
+function UNIKFORCE_INIT()
 {
-    return WOOMENTOR_ADDONS::init();
+    return UNIKFORCE::init();
 }
 
-// Get WooMentor Addons Running
-WOOMENTOR_ADDONS_INIT();
+// Get UnikForce Elementor WooCommerce  Running
+UNIKFORCE_INIT();

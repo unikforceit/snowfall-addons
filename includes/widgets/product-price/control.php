@@ -10,7 +10,7 @@ class WM_Product_Price_Element extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'WM - Product Price', 'woomentor' );
+        return __( 'WM - Product Price', 'unikforce' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WM_Product_Price_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woomentor' );
+        return array( 'unikforce' );
     }
 
     public function get_style_depends(){
         return [
-            'woomentor-widgets',
+            'unikforce-widgets',
         ];
     }
 
@@ -37,14 +37,14 @@ class WM_Product_Price_Element extends Widget_Base {
         $this->start_controls_section(
             'product_price_regular_style_section',
             array(
-                'label' => __( 'Price', 'woomentor' ),
+                'label' => __( 'Price', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'product_price_color',
                 [
-                    'label'     => __( 'Price Color', 'woomentor' ),
+                    'label'     => __( 'Price Color', 'unikforce' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .price' => 'color: {{VALUE}} !important;',
@@ -56,7 +56,7 @@ class WM_Product_Price_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name'      => 'product_price_typography',
-                    'label'     => __( 'Typography', 'woomentor' ),
+                    'label'     => __( 'Typography', 'unikforce' ),
                     'selector'  => '{{WRAPPER}} .price .amount',
                 ]
             );
@@ -64,7 +64,7 @@ class WM_Product_Price_Element extends Widget_Base {
             $this->add_control(
                 'price_margin',
                 [
-                    'label' => __( 'Margin', 'woomentor' ),
+                    'label' => __( 'Margin', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -78,14 +78,14 @@ class WM_Product_Price_Element extends Widget_Base {
         $this->start_controls_section(
             'product_price_sale_style_section',
             [
-                'label' => __( 'Old Price', 'woomentor' ),
+                'label' => __( 'Old Price', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
             $this->add_control(
                 'product_sale_price_color',
                 [
-                    'label'     => __( 'Price Color', 'woomentor' ),
+                    'label'     => __( 'Price Color', 'unikforce' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .price del' => 'color: {{VALUE}} !important;',
@@ -97,7 +97,7 @@ class WM_Product_Price_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 array(
                     'name'      => 'product_sale_price_typography',
-                    'label'     => __( 'Typography', 'woomentor' ),
+                    'label'     => __( 'Typography', 'unikforce' ),
                     'selector'  => '{{WRAPPER}} .price del, {{WRAPPER}} .price del .amount',
                 )
             );
@@ -115,7 +115,7 @@ class WM_Product_Price_Element extends Widget_Base {
         $product = wc_get_product();
 
         if( Plugin::instance()->editor->is_edit_mode() ){
-            echo \Woomentor_Data::instance()->default( $this->get_name() );
+            echo \UnikForce_Data::instance()->default( $this->get_name() );
         }else{
             if ( empty( $product ) ) { return; }
             woocommerce_template_single_price();

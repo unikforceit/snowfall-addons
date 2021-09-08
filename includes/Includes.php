@@ -1,10 +1,10 @@
 <?php
 
-namespace UnikForce\WoomentorAddons\Includes;
+namespace UnikForce\UnikForce\Includes;
 
 /**
  * Class Includes
- * @package UnikForce\WoomentorAddons\Includes
+ * @package UnikForce\UnikForce\Includes
  */
 class Includes
 {
@@ -19,7 +19,7 @@ class Includes
      */
     public function elementor_load_widgets()
     {
-        foreach (glob(WOOMENTOR_ADDONS_PL_PATH . 'includes/widgets/*/control.php') as $file) {
+        foreach (glob(UNIKFORCE_PL_PATH . 'includes/widgets/*/control.php') as $file) {
             include_once $file;
         }
     }

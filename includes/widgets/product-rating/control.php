@@ -10,7 +10,7 @@ class WM_Product_Rating_Element extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'WM - Product Rating', 'woomentor' );
+        return __( 'WM - Product Rating', 'unikforce' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WM_Product_Rating_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woomentor' );
+        return array( 'unikforce' );
     }
 
     public function get_style_depends(){
         return [
-            'woomentor-widgets',
+            'unikforce-widgets',
         ];
     }
 
@@ -37,14 +37,14 @@ class WM_Product_Rating_Element extends Widget_Base {
         $this->start_controls_section(
             'product_rating_style_section',
             array(
-                'label' => __( 'Style', 'woomentor' ),
+                'label' => __( 'Style', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'product_rating_color',
                 [
-                    'label'     => __( 'Star Color', 'woomentor' ),
+                    'label'     => __( 'Star Color', 'unikforce' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .star-rating' => 'color: {{VALUE}} !important;',
@@ -56,7 +56,7 @@ class WM_Product_Rating_Element extends Widget_Base {
             $this->add_control(
                 'product_rating_text_color',
                 [
-                    'label'     => __( 'Link Color', 'woomentor' ),
+                    'label'     => __( 'Link Color', 'unikforce' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} a.woocommerce-review-link' => 'color: {{VALUE}} !important;',
@@ -68,7 +68,7 @@ class WM_Product_Rating_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 array(
                     'name'      => 'product_rating_link_typography',
-                    'label'     => __( 'Link Typography', 'woomentor' ),
+                    'label'     => __( 'Link Typography', 'unikforce' ),
                     'selector'  => '{{WRAPPER}} a.woocommerce-review-link',
                 )
             );
@@ -76,7 +76,7 @@ class WM_Product_Rating_Element extends Widget_Base {
             $this->add_control(
                 'rating_margin',
                 [
-                    'label' => __( 'Margin', 'woomentor' ),
+                    'label' => __( 'Margin', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -97,7 +97,7 @@ class WM_Product_Rating_Element extends Widget_Base {
         $product = wc_get_product();
 
         if( Plugin::instance()->editor->is_edit_mode() ){
-            echo \Woomentor_Data::instance()->default( $this->get_name() );
+            echo \UnikForce_Data::instance()->default( $this->get_name() );
         } else{
             if ( empty( $product ) ) { return; }
             woocommerce_template_single_rating();

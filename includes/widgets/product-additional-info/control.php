@@ -10,7 +10,7 @@ class WM_Product_Additional_Info_Element extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'WM - Product Additional Information', 'woomentor' );
+        return __( 'WM - Product Additional Information', 'unikforce' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WM_Product_Additional_Info_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woomentor' );
+        return array( 'unikforce' );
     }
 
     public function get_style_depends(){
         return [
-            'woomentor-widgets',
+            'unikforce-widgets',
         ];
     }
 
@@ -38,17 +38,17 @@ class WM_Product_Additional_Info_Element extends Widget_Base {
         $this->start_controls_section(
             'addition_info_content',
             [
-                'label' => __( 'Heading', 'woomentor' ),
+                'label' => __( 'Heading', 'unikforce' ),
             ]
         );
             
             $this->add_control(
                 'wm_show_heading',
                 [
-                    'label' => __( 'Heading', 'woomentor' ),
+                    'label' => __( 'Heading', 'unikforce' ),
                     'type' => Controls_Manager::SWITCHER,
-                    'label_on' => __( 'Show', 'woomentor' ),
-                    'label_off' => __( 'Hide', 'woomentor' ),
+                    'label_on' => __( 'Show', 'unikforce' ),
+                    'label_off' => __( 'Hide', 'unikforce' ),
                     'render_type' => 'ui',
                     'return_value' => 'yes',
                     'default' => 'yes',
@@ -62,14 +62,14 @@ class WM_Product_Additional_Info_Element extends Widget_Base {
         $this->start_controls_section(
             'heading_style_section',
             array(
-                'label' => __( 'Heading', 'woomentor' ),
+                'label' => __( 'Heading', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'heading_color',
                 [
-                    'label' => __( 'Color', 'woomentor' ),
+                    'label' => __( 'Color', 'unikforce' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '.woocommerce {{WRAPPER}} h2' => 'color: {{VALUE}}',
@@ -84,7 +84,7 @@ class WM_Product_Additional_Info_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'heading_typography',
-                    'label' => __( 'Typography', 'woomentor' ),
+                    'label' => __( 'Typography', 'unikforce' ),
                     'selector' => '.woocommerce {{WRAPPER}} h2',
                     'condition' => [
                         'wm_show_heading!' => '',
@@ -95,7 +95,7 @@ class WM_Product_Additional_Info_Element extends Widget_Base {
             $this->add_responsive_control(
                 'heading_margin',
                 [
-                    'label' => __( 'Margin', 'woomentor' ),
+                    'label' => __( 'Margin', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
@@ -110,14 +110,14 @@ class WM_Product_Additional_Info_Element extends Widget_Base {
         $this->start_controls_section(
             'content_style_section',
             array(
-                'label' => __( 'Content', 'woomentor' ),
+                'label' => __( 'Content', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'content_color',
                 [
-                    'label' => __( 'Color', 'woomentor' ),
+                    'label' => __( 'Color', 'unikforce' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '.woocommerce {{WRAPPER}} .shop_attributes' => 'color: {{VALUE}}',
@@ -130,7 +130,7 @@ class WM_Product_Additional_Info_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'content_typography',
-                    'label' => __( 'Typography', 'woomentor' ),
+                    'label' => __( 'Typography', 'unikforce' ),
                     'selector' => '.woocommerce {{WRAPPER}} .shop_attributes',
                 ]
             ); 
@@ -144,7 +144,7 @@ class WM_Product_Additional_Info_Element extends Widget_Base {
 
         $settings   = $this->get_settings_for_display();
         if ( Plugin::instance()->editor->is_edit_mode() ) {
-            echo \Woomentor_Data::instance()->default( $this->get_name() );
+            echo \UnikForce_Data::instance()->default( $this->get_name() );
         } else{
             global $product;
             $product = wc_get_product();

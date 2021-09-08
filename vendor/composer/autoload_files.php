@@ -6,9 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '111819d553d221c784a49938210b7817' => $baseDir . '/includes/framework/codestar-framework.php',
-    '29bae1b554520dc94968417834d4d16c' => $baseDir . '/helpers/helpers.php',
-    '481104f3d9fbaba376ecacf56b6b2a21' => $baseDir . '/helpers/admin-options.php',
-    '2f982818a4caf06d926cb3eb8e2a1bbf' => $baseDir . '/includes/builder-functions.php',
-    '136f38b58999558c48002b4f998f12a2' => $baseDir . '/includes/woo-data.php',
+    '968a1f4a95458126e7dbfd0bfdf769b4' => $baseDir . '/includes/framework/codestar-framework.php',
+    '1c01d6ef906adbf591e12a4a73198e88' => $baseDir . '/helpers/helpers.php',
+    '78efd2ad2e874d7c30f73ea58053fbec' => $baseDir . '/helpers/admin-options.php',
+    '2ed3697b184f77c8f16bbf7b6adfe604' => $baseDir . '/includes/builder-functions.php',
+    '56d3e83728cb51bfde461451f21484f0' => $baseDir . '/includes/woo-data.php',
 );

@@ -1,10 +1,10 @@
 <?php
 
-namespace UnikForce\WoomentorAddons\Frontend;
+namespace UnikForce\UnikForce\Frontend;
 
 /**
  * Class Frontend
- * @package UnikForce\WoomentorAddons\Frontend
+ * @package UnikForce\UnikForce\Frontend
  */
 class Frontend
 {
@@ -19,11 +19,11 @@ class Frontend
      */
     public function elementor_load_style()
     {
-        foreach (glob(WOOMENTOR_PLUGIN_DIR_NAME . 'assets/css/*.css') as $file) {
+        foreach (glob(UNIKFORCE_PLUGIN_DIR_NAME . 'assets/css/*.css') as $file) {
             $filename = substr($file, strrpos($file, '/') + 1);
-            wp_enqueue_style($filename, WOOMENTOR_ADDONS_PL_URL . 'assets/css/' . $filename, array(), filemtime(WOOMENTOR_PLUGIN_DIR_NAME . 'assets/css/' . $filename), 'all');
+            wp_enqueue_style($filename, UNIKFORCE_PL_URL . 'assets/css/' . $filename, array(), filemtime(UNIKFORCE_PLUGIN_DIR_NAME . 'assets/css/' . $filename), 'all');
         }
-        //wp_enqueue_style( 'woomentor', WOOMENTOR_ADDONS_PL_URL . 'assets/css/woomentor.css', array(), WOOMENTOR_VERSION, 'all');
+        //wp_enqueue_style( 'unikforce', UNIKFORCE_PL_URL . 'assets/css/unikforce.css', array(), UNIKFORCE_VERSION, 'all');
 
     }
     /**
@@ -32,9 +32,9 @@ class Frontend
      */
     public function elementor_load_script()
     {
-        foreach (glob(WOOMENTOR_PLUGIN_DIR_NAME . 'assets/js/*.js') as $file) {
+        foreach (glob(UNIKFORCE_PLUGIN_DIR_NAME . 'assets/js/*.js') as $file) {
             $filename = substr($file, strrpos($file, '/') + 1);
-            wp_enqueue_script($filename, WOOMENTOR_ADDONS_PL_URL . 'assets/js/' . $filename, array('jquery'), filemtime(WOOMENTOR_PLUGIN_DIR_NAME . 'assets/js/' . $filename), true);
+            wp_enqueue_script($filename, UNIKFORCE_PL_URL . 'assets/js/' . $filename, array('jquery'), filemtime(UNIKFORCE_PLUGIN_DIR_NAME . 'assets/js/' . $filename), true);
         }
     }
 

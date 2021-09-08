@@ -10,7 +10,7 @@ class WM_Product_Meta_Element extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'WM - Product Meta', 'woomentor' );
+        return __( 'WM - Product Meta', 'unikforce' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WM_Product_Meta_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woomentor' );
+        return array( 'unikforce' );
     }
 
     public function get_style_depends(){
         return [
-            'woomentor-widgets',
+            'unikforce-widgets',
         ];
     }
     public function get_keywords(){
@@ -36,14 +36,14 @@ class WM_Product_Meta_Element extends Widget_Base {
         $this->start_controls_section(
             'product_meta_style_section',
             array(
-                'label' => __( 'Meta', 'woomentor' ),
+                'label' => __( 'Meta', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
             $this->add_control(
                 'meta_text_color',
                 [
-                    'label' => __( 'Text Color', 'woomentor' ),
+                    'label' => __( 'Text Color', 'unikforce' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .product_meta' => 'color: {{VALUE}}',
@@ -54,7 +54,7 @@ class WM_Product_Meta_Element extends Widget_Base {
             $this->add_control(
                 'meta_link_color',
                 [
-                    'label' => __( 'Link Color', 'woomentor' ),
+                    'label' => __( 'Link Color', 'unikforce' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .product_meta a' => 'color: {{VALUE}}',
@@ -65,7 +65,7 @@ class WM_Product_Meta_Element extends Widget_Base {
             $this->add_control(
                 'meta_link_hover_color',
                 [
-                    'label' => __( 'Link Hover Color', 'woomentor' ),
+                    'label' => __( 'Link Hover Color', 'unikforce' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .product_meta a:hover' => 'color: {{VALUE}}',
@@ -77,7 +77,7 @@ class WM_Product_Meta_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'meta_text_typography',
-                    'label' => __( 'Typography', 'woomentor' ),
+                    'label' => __( 'Typography', 'unikforce' ),
                     'selector' => '{{WRAPPER}} .product_meta',
                 ]
             );
@@ -85,7 +85,7 @@ class WM_Product_Meta_Element extends Widget_Base {
             $this->add_responsive_control(
                 'meta_margin',
                 [
-                    'label' => __( 'Margin', 'woomentor' ),
+                    'label' => __( 'Margin', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -106,7 +106,7 @@ class WM_Product_Meta_Element extends Widget_Base {
         $product = wc_get_product();
         
         if( Plugin::instance()->editor->is_edit_mode() ){
-            echo \Woomentor_Data::instance()->default( $this->get_name() );
+            echo \UnikForce_Data::instance()->default( $this->get_name() );
         } else{
             if ( empty( $product ) ) { return; }
             woocommerce_template_single_meta();

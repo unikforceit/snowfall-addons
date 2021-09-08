@@ -11,7 +11,7 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'WM - Product Video Gallery', 'woomentor' );
+        return __( 'WM - Product Video Gallery', 'unikforce' );
     }
 
     public function get_icon() {
@@ -19,18 +19,18 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woomentor' );
+        return array( 'unikforce' );
     }
 
     public function get_style_depends(){
         return [
-            'woomentor-widgets',
+            'unikforce-widgets',
         ];
     }
 
     public function get_script_depends() {
         return [
-            'woomentor-widgets-scripts',
+            'unikforce-widgets-scripts',
         ];
     }
 
@@ -43,7 +43,7 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
          $this->start_controls_section(
             'product_thumbnails_content',
             array(
-                'label' => __( 'Video Thumbnails', 'woomentor' ),
+                'label' => __( 'Video Thumbnails', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -51,23 +51,23 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
             $this->add_control(
                 'tab_thumbnails_position',
                 [
-                    'label'   => __( 'Thumbnails Position', 'woomentor' ),
+                    'label'   => __( 'Thumbnails Position', 'unikforce' ),
                     'type'    => Controls_Manager::CHOOSE,
                     'options' => [
                         'left' => [
-                            'title' => __( 'Left', 'woomentor' ),
+                            'title' => __( 'Left', 'unikforce' ),
                             'icon'  => 'eicon-h-align-left',
                         ],
                         'right' => [
-                            'title' => __( 'Right', 'woomentor' ),
+                            'title' => __( 'Right', 'unikforce' ),
                             'icon'  => 'eicon-h-align-right',
                         ],
                         'top' => [
-                            'title' => __( 'Top', 'woomentor' ),
+                            'title' => __( 'Top', 'unikforce' ),
                             'icon'  => 'eicon-v-align-top',
                         ],
                         'bottom' => [
-                            'title' => __( 'Bottom', 'woomentor' ),
+                            'title' => __( 'Bottom', 'unikforce' ),
                             'icon'  => 'eicon-v-align-bottom',
                         ],
                     ],
@@ -83,7 +83,7 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
         $this->start_controls_section(
             'product_image_style_section',
             [
-                'label' => __( 'Main Video Area', 'woomentor' ),
+                'label' => __( 'Main Video Area', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -119,20 +119,20 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'product_image_border',
-                    'label' => __( 'Product image border', 'woomentor' ),
-                    'selector' => '{{WRAPPER}} .woomentor-product-gallery-video',
+                    'label' => __( 'Product image border', 'unikforce' ),
+                    'selector' => '{{WRAPPER}} .unikforce-product-gallery-video',
                 ]
             );
 
             $this->add_responsive_control(
                 'product_image_border_radius',
                 [
-                    'label' => __( 'Border Radius', 'woomentor' ),
+                    'label' => __( 'Border Radius', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%' ],
                     'selectors' => [
-                        '{{WRAPPER}} .woomentor-product-gallery-video img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
-                        '{{WRAPPER}} .woomentor-product-gallery-video' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .unikforce-product-gallery-video img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .unikforce-product-gallery-video' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                         '{{WRAPPER}} .embed-responsive' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                     ],
                 ]
@@ -141,11 +141,11 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
             $this->add_responsive_control(
                 'product_margin',
                 [
-                    'label' => __( 'Margin', 'woomentor' ),
+                    'label' => __( 'Margin', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em', '%' ],
                     'selectors' => [
-                        '{{WRAPPER}} .woomentor-product-gallery-video' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .unikforce-product-gallery-video' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                     ],
                 ]
             );
@@ -156,7 +156,7 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
         $this->start_controls_section(
             'product_image_thumbnails_style_section',
             [
-                'label' => __( 'Thumbnails', 'woomentor' ),
+                'label' => __( 'Thumbnails', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -165,20 +165,20 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'product_thumbnais_image_border',
-                    'label' => __( 'Product image border', 'woomentor' ),
-                    'selector' => '{{WRAPPER}} .woomentor-product-video-tabs li a',
+                    'label' => __( 'Product image border', 'unikforce' ),
+                    'selector' => '{{WRAPPER}} .unikforce-product-video-tabs li a',
                 ]
             );
 
             $this->add_responsive_control(
                 'product_thumbnais_image_border_radius',
                 [
-                    'label' => __( 'Border Radius', 'woomentor' ),
+                    'label' => __( 'Border Radius', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%' ],
                     'selectors' => [
-                        '{{WRAPPER}} .woomentor-product-video-tabs li a img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
-                        '{{WRAPPER}} .woomentor-product-video-tabs li a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .unikforce-product-video-tabs li a img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .unikforce-product-video-tabs li a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                     ],
                 ]
             );
@@ -186,11 +186,11 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
             $this->add_responsive_control(
                 'product_product_thumbnais_padding',
                 [
-                    'label' => __( 'Padding', 'woomentor' ),
+                    'label' => __( 'Padding', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em', '%' ],
                     'selectors' => [
-                        '{{WRAPPER}} .woomentor-product-video-tabs li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+                        '{{WRAPPER}} .unikforce-product-video-tabs li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
                     ],
                 ]
             );
@@ -205,7 +205,7 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
         $this->add_render_attribute( 'wm_product_thumbnails_attr', 'class', 'wmpro-product-videothumbnails thumbnails-tab-position-'.$settings['tab_thumbnails_position'] );
 
         if( Plugin::instance()->editor->is_edit_mode() ){
-            $product = wc_get_product( woomentor_get_last_product_id() );
+            $product = wc_get_product( unikforce_get_last_product_id() );
         } else{
             global $product;
         }
@@ -222,13 +222,13 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
             <div class="wm-thumbnails-image-area">
 
                     <?php if( $settings['tab_thumbnails_position'] == 'left' || $settings['tab_thumbnails_position'] == 'top' ): ?>
-                        <ul class="woomentor-product-video-tabs">
+                        <ul class="unikforce-product-video-tabs">
                             <?php
                                 $j=0;
                                 foreach ( $gallery_images_ids as $thkey => $gallery_attachment_id ) {
                                     $j++;
                                     if( $j == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-                                    $video_url = get_post_meta( $gallery_attachment_id, 'woomentor_video_url', true );
+                                    $video_url = get_post_meta( $gallery_attachment_id, 'unikforce_video_url', true );
                                     ?>
                                     <li class="<?php if( !empty( $video_url ) ){ echo 'wmvideothumb'; }?>">
                                         <a class="<?php echo $tabactive; ?>" href="#wmvideo-<?php echo $j; ?>">
@@ -248,13 +248,13 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
                         </ul>
                     <?php endif; ?>
 
-                    <div class="woomentor-product-gallery-video">
+                    <div class="unikforce-product-gallery-video">
                         <?php
                             $i = 0;
                             foreach ( $gallery_images_ids as $thkey => $gallery_attachment_id ) {
                                 $i++;
                                 if( $i == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-                                $video_url = get_post_meta( $gallery_attachment_id, 'woomentor_video_url', true );
+                                $video_url = get_post_meta( $gallery_attachment_id, 'unikforce_video_url', true );
                                 ?>
                                 <div class="video-cus-tab-pane <?php echo $tabactive; ?>" id="wmvideo-<?php echo $i; ?>">
                                     <?php
@@ -276,13 +276,13 @@ class WM_Product_Video_Gallery_ELement extends Widget_Base {
 
                     <?php if( $settings['tab_thumbnails_position'] == 'right' || $settings['tab_thumbnails_position'] == 'bottom' ): ?>
 
-                        <ul class="woomentor-product-video-tabs">
+                        <ul class="unikforce-product-video-tabs">
                             <?php
                                 $j=0;
                                 foreach ( $gallery_images_ids as $thkey => $gallery_attachment_id ) {
                                     $j++;
                                     if( $j == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-                                    $video_url = get_post_meta( $gallery_attachment_id, 'woomentor_video_url', true );
+                                    $video_url = get_post_meta( $gallery_attachment_id, 'unikforce_video_url', true );
                                     ?>
                                     <li class="<?php if( !empty( $video_url ) ){ echo 'wmvideothumb'; }?>">
                                         <a class="<?php echo $tabactive; ?>" href="#wmvideo-<?php echo $j; ?>">

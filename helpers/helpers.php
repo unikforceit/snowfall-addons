@@ -5,7 +5,7 @@
  * @param string $img_size
  * @return string
  */
-function woomentor_image($source, $img_size = 'full')
+function unikforce_image($source, $img_size = 'full')
 {
     if ($source) {
         return wp_get_attachment_image($source['id'], $img_size);
@@ -17,7 +17,7 @@ function woomentor_image($source, $img_size = 'full')
  * @param string $tax
  * @return array
  */
-function woomentor_category_lists($tax = 'category')
+function unikforce_category_lists($tax = 'category')
 {
 
     $categories_obj = get_categories('taxonomy=' . $tax . '');
@@ -34,7 +34,7 @@ function woomentor_category_lists($tax = 'category')
  * @param string $taxonomy
  * @return string
  */
-function woomentor_get_category_link($style, $taxonomy = 'product_cat')
+function unikforce_get_category_link($style, $taxonomy = 'product_cat')
 {
 
     global $post;
@@ -55,7 +55,7 @@ function woomentor_get_category_link($style, $taxonomy = 'product_cat')
  * @param string $post_type
  * @return array
  */
-function woomentor_post_lists($post_type = 'product')
+function unikforce_post_lists($post_type = 'product')
 {
     $args = array(
         'numberposts' => -1,
@@ -73,7 +73,7 @@ function woomentor_post_lists($post_type = 'product')
 /**
  * @return array|false
  */
-function woomentor_image_sizes()
+function unikforce_image_sizes()
 {
     $image_sizes = get_intermediate_image_sizes();
 
@@ -91,7 +91,7 @@ function woomentor_image_sizes()
  * @param $link
  * @return string
  */
-function woomentor_link($link)
+function unikforce_link($link)
 {
 
     $url = $link['url'] ? 'href=' . esc_url($link['url']) . '' : '';
@@ -104,7 +104,7 @@ function woomentor_link($link)
  * @param $data
  * @return string
  */
-function woomentor_odd_even($data)
+function unikforce_odd_even($data)
 {
     if ($data % 2 == 0) {
         $data = "Even";
@@ -119,7 +119,7 @@ function woomentor_odd_even($data)
  * @param null $default
  * @return |null
  */
-function woomentor_meta($meta = '', $default = null)
+function unikforce_meta($meta = '', $default = null)
 {
     $options = get_post_meta(get_the_ID(), '_slidermeta', true);
     return (isset($options[$meta])) ? $options[$meta] : $default;
@@ -130,17 +130,17 @@ function woomentor_meta($meta = '', $default = null)
  * @param null $default
  * @return |null
  */
-function woomentor_option($option = '', $default = null)
+function unikforce_option($option = '', $default = null)
 {
-    $options = get_option('_woomentor'); // Attention: Set your unique id of the framework
+    $options = get_option('_unikforce'); // Attention: Set your unique id of the framework
     return (isset($options[$option])) ? $options[$option] : $default;
 }
 
 /**
- * [woomentor_get_taxonomies]
+ * [unikforce_get_taxonomies]
  * @return [array] product texonomies
  */
-function woomentor_get_taxonomies( $object = 'product' ) {
+function unikforce_get_taxonomies( $object = 'product' ) {
     $all_taxonomies = get_object_taxonomies( $object );
     $taxonomies_list = [];
     foreach ( $all_taxonomies as $taxonomy_data ) {
@@ -155,7 +155,7 @@ function woomentor_get_taxonomies( $object = 'product' ) {
 /**
  * Woocommerce Product last product id return
  */
-function woomentor_get_last_product_id(){
+function unikforce_get_last_product_id(){
     global $wpdb;
 
     // Getting last Product ID (max value)
@@ -171,17 +171,17 @@ function woomentor_get_last_product_id(){
  * HTML Tag list
  * return array
  */
-function woomentor_html_tag_lists() {
+function unikforce_html_tag_lists() {
     $html_tag_list = [
-        'h1'   => __( 'H1', 'woomentor' ),
-        'h2'   => __( 'H2', 'woomentor' ),
-        'h3'   => __( 'H3', 'woomentor' ),
-        'h4'   => __( 'H4', 'woomentor' ),
-        'h5'   => __( 'H5', 'woomentor' ),
-        'h6'   => __( 'H6', 'woomentor' ),
-        'p'    => __( 'p', 'woomentor' ),
-        'div'  => __( 'div', 'woomentor' ),
-        'span' => __( 'span', 'woomentor' ),
+        'h1'   => __( 'H1', 'unikforce' ),
+        'h2'   => __( 'H2', 'unikforce' ),
+        'h3'   => __( 'H3', 'unikforce' ),
+        'h4'   => __( 'H4', 'unikforce' ),
+        'h5'   => __( 'H5', 'unikforce' ),
+        'h6'   => __( 'H6', 'unikforce' ),
+        'p'    => __( 'p', 'unikforce' ),
+        'div'  => __( 'div', 'unikforce' ),
+        'span' => __( 'span', 'unikforce' ),
     ];
     return $html_tag_list;
 }
@@ -190,7 +190,7 @@ function woomentor_html_tag_lists() {
  * HTML Tag Validation
  * return strig
  */
-function woomentor_validate_html_tag( $tag ) {
+function unikforce_validate_html_tag( $tag ) {
     $allowed_html_tags = [
         'article',
         'aside',

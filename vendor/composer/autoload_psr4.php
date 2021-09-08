@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'UnikForce\\WoomentorAddons\\Includes\\' => array($baseDir . '/includes'),
-    'UnikForce\\WoomentorAddons\\Frontend\\' => array($baseDir . '/frontend'),
-    'UnikForce\\WoomentorAddons\\Admin\\' => array($baseDir . '/admin'),
+    'UnikForce\\UnikForce\\Includes\\' => array($baseDir . '/includes'),
+    'UnikForce\\UnikForce\\Frontend\\' => array($baseDir . '/frontend'),
+    'UnikForce\\UnikForce\\Admin\\' => array($baseDir . '/admin'),
 );

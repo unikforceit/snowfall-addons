@@ -1,8 +1,8 @@
 <?php
 /**
-* Woomentor_Data
+* UnikForce_Data
 */
-class Woomentor_Data{
+class UnikForce_Data{
 
     /**
      * [$instance]
@@ -53,7 +53,7 @@ class Woomentor_Data{
         if( $post_type == 'elementor_library' ){
             $classes[] = 'woocommerce';
             $classes[] = 'woocommerce-page';
-            $classes[] = 'woomentor-woocommerce-builder';
+            $classes[] = 'unikforce-woocommerce-builder';
             $classes[] = 'single-product';
         }
         return $classes;
@@ -84,9 +84,9 @@ class Woomentor_Data{
         if( get_post_type() == 'product' ){
             self::$product_id = $product->get_id();
         }else{
-            if( function_exists('woomentor_get_last_product_id') ){
-                self::$product_id = woomentor_get_last_product_id();
-                $product = wc_get_product( woomentor_get_last_product_id() );
+            if( function_exists('unikforce_get_last_product_id') ){
+                self::$product_id = unikforce_get_last_product_id();
+                $product = wc_get_product( unikforce_get_last_product_id() );
             }
         }
 
@@ -142,13 +142,13 @@ class Woomentor_Data{
                                 <?php echo wc_get_rating_html( $average, $rating_count ); ?>
                                 <?php if ( comments_open() ) : ?>
                                     <?php ?>
-                                    <a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woomentor' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?>)</a>
+                                    <a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'unikforce' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?>)</a>
                                     <?php ?>
                                 <?php endif ?>
                             </div>
                         </div>
                     <?php else:?>
-                        <?php echo '<div class="wm-nodata">'.__('No Rating Available','woomentor').'</div>';?>
+                        <?php echo '<div class="wm-nodata">'.__('No Rating Available','unikforce').'</div>';?>
                     <?php endif; 
                     break;
 
@@ -173,7 +173,7 @@ class Woomentor_Data{
                                         $html = wc_get_gallery_image_html( $thumbnail_id, true );
                                     } else {
                                         $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-                                        $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woomentor' ) );
+                                        $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'unikforce' ) );
                                         $html .= '</div>';
                                     }
 
@@ -205,13 +205,13 @@ class Woomentor_Data{
 
                                 <?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
 
-                                    <span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'woomentor' ); ?> <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'woomentor' ); ?></span></span>
+                                    <span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'unikforce' ); ?> <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'unikforce' ); ?></span></span>
 
                                 <?php endif; ?>
 
-                                <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woomentor' ) . ' ', '</span>' ); ?>
+                                <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'unikforce' ) . ' ', '</span>' ); ?>
 
-                                <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woomentor' ) . ' ', '</span>' ); ?>
+                                <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'unikforce' ) . ' ', '</span>' ); ?>
 
                                 <?php do_action( 'woocommerce_product_meta_end' ); ?>
 
@@ -324,4 +324,4 @@ class Woomentor_Data{
     }
 
 }
-Woomentor_Data::instance();
+UnikForce_Data::instance();

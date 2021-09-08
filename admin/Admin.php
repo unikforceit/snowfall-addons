@@ -1,10 +1,10 @@
 <?php
 
-namespace UnikForce\WoomentorAddons\Admin;
+namespace UnikForce\UnikForce\Admin;
 
 /**
  * Class Admin
- * @package UnikForce\WoomentorAddons\Admin
+ * @package UnikForce\UnikForce\Admin
  */
 class Admin
 {
@@ -12,7 +12,7 @@ class Admin
     {
         add_action('elementor/init', array($this, 'elementor_category'));
         add_action('template_redirect', array($this, 'elementor_template_redirect'), 9);
-        //add_filter('plugin_action_links_' . WOOMENTOR_PLUGIN_BASE, [$this, 'plugins_setting_links']);
+        //add_filter('plugin_action_links_' . UNIKFORCE_PLUGIN_BASE, [$this, 'plugins_setting_links']);
         //add_filter('plugin_row_meta', array($this, 'plugin_meta_links'), 10, 2);
         add_filter('admin_footer_text', array($this, 'admin_footer_text'));
         add_action('admin_enqueue_scripts', [$this, 'admin_css']);
@@ -50,7 +50,7 @@ class Admin
         ?>
         <div class="notice notice-warning is-dismissible">
             <p>
-                <strong><?php esc_html_e(WOOMENTOR_ITEM_NAME . ' requires Elementor to be installed and activated.', 'woomentor'); ?></strong>
+                <strong><?php esc_html_e(UNIKFORCE_ITEM_NAME . ' requires Elementor to be installed and activated.', 'unikforce'); ?></strong>
             </p>
             <br>
             <a class="button button-primary"
@@ -86,7 +86,7 @@ class Admin
         ?>
         <div class="notice notice-warning is-dismissible">
             <p>
-                <strong><?php esc_html_e(WOOMENTOR_ITEM_NAME . ' requires WooCommerce to be installed and activated.', 'woomentor'); ?></strong>
+                <strong><?php esc_html_e(UNIKFORCE_ITEM_NAME . ' requires WooCommerce to be installed and activated.', 'unikforce'); ?></strong>
             </p>
             <br>
             <a class="button button-primary"
@@ -102,7 +102,7 @@ class Admin
      */
     public function admin_css()
     {
-        wp_enqueue_style('admin-style', WOOMENTOR_ADDONS_PL_URL . 'assets/css/admin.css', array(), filemtime(WOOMENTOR_PLUGIN_DIR_NAME . 'assets/css/admin.css'), 'all');
+        wp_enqueue_style('admin-style', UNIKFORCE_PL_URL . 'assets/css/admin.css', array(), filemtime(UNIKFORCE_PLUGIN_DIR_NAME . 'assets/css/admin.css'), 'all');
     }
 
     /**
@@ -121,9 +121,9 @@ class Admin
     public function elementor_category()
     {
         \Elementor\Plugin::instance()->elements_manager->add_category(
-            'woomentor',
+            'unikforce',
             array(
-                'title' => __('Woomentor', 'woomentor'),
+                'title' => __('UnikForce', 'unikforce'),
                 'icon' => 'fa fa-plug',
             ),
             1);
@@ -136,10 +136,10 @@ class Admin
      */
     public function plugins_setting_links($links)
     {
-        $settings_link = '<a href="' . admin_url('admin.php?page=woomentor') . '">' . esc_html__('Settings', 'woomentor') . '</a>';
+        $settings_link = '<a href="' . admin_url('admin.php?page=unikforce') . '">' . esc_html__('Settings', 'unikforce') . '</a>';
         array_unshift($links, $settings_link);
-        if (!is_plugin_active('woomentor-addons-pro/woomentor-addons-pro.php')) {
-            $links['woomentor'] = sprintf('<a href="https://unikforce.com" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro', 'woomentor') . '</a>');
+        if (!is_plugin_active('unikforce-elementor-woocommerce-pro/unikforce-elementor-woocommerce-pro.php')) {
+            $links['unikforce'] = sprintf('<a href="https://unikforce.com" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro', 'unikforce') . '</a>');
         }
         return $links;
     }
@@ -158,14 +158,14 @@ class Admin
             return $links;
         }
 
-        $links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/woomentor-addons" title="' . __('Get help', 'woomentor') . '">' . __('Support', 'woomentor') . '</a>';
-        $links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/woomentor-addons/reviews/#new-post" title="' . __('Rate the plugin', 'woomentor') . '">' . __('Rate the plugin ★★★★★', 'woomentor') . '</a>';
+        $links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/unikforce-elementor-woocommerce" title="' . __('Get help', 'unikforce') . '">' . __('Support', 'unikforce') . '</a>';
+        $links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/unikforce-elementor-woocommerce/reviews/#new-post" title="' . __('Rate the plugin', 'unikforce') . '">' . __('Rate the plugin ★★★★★', 'unikforce') . '</a>';
 
         return $links;
     }
 
     /**
-     * Test if we're on woomentor's admin page
+     * Test if we're on unikforce's admin page
      *
      * @return bool
      */
@@ -230,7 +230,7 @@ class Admin
             return $text;
         }
 
-        $text = '<i><a href="' . esc_url($this->generate_web_link('admin_footer')) . '" title="' . esc_attr(__('Visit WooMentor Addons page for more info', 'woomentor')) . '" target="_blank">WooMentor Addons</a> v' . WOOMENTOR_VERSION . '. Please <a target="_blank" href="https://wordpress.org/support/plugin/woomentor-addons/reviews/#new-post" title="Rate the plugin">rate the plugin <span>★★★★★</span></a> to help us spread the word. Thank you from the WP Reset team!</i>';
+        $text = '<i><a href="' . esc_url($this->generate_web_link('admin_footer')) . '" title="' . esc_attr(__('Visit UnikForce Elementor WooCommerce  page for more info', 'unikforce')) . '" target="_blank">UnikForce Elementor WooCommerce </a> v' . UNIKFORCE_VERSION . '. Please <a target="_blank" href="https://wordpress.org/support/plugin/unikforce-addons/reviews/#new-post" title="Rate the plugin">rate the plugin <span>★★★★★</span></a> to help us spread the word. Thank you from the WP Reset team!</i>';
 
         return $text;
     } // admin_footer_text

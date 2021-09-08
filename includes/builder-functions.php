@@ -3,7 +3,7 @@
 /**
  *  Single Product Custom Layout
  */
-class Woomentor_Woo_Custom_Template_Layout
+class UnikForce_Woo_Custom_Template_Layout
 {
 
     public static $wm_elementor_template = array();
@@ -32,13 +32,13 @@ class Woomentor_Woo_Custom_Template_Layout
         // Product details page
         add_filter('wc_get_template_part', array($this, 'wm_get_product_page_template'), 99, 3);
         add_filter('template_include', array($this, 'wm_get_product_elementor_template'), 100);
-        add_action('woomentor_woocommerce_product_content', array($this, 'wm_get_product_content_elementor'), 5);
-        add_action('woomentor_woocommerce_product_content', array($this, 'wm_get_default_product_data'), 10);
+        add_action('unikforce_woocommerce_product_content', array($this, 'wm_get_product_content_elementor'), 5);
+        add_action('unikforce_woocommerce_product_content', array($this, 'wm_get_default_product_data'), 10);
 
         // Product Archive Page
-        add_action('template_redirect', array($this, 'woomentor_product_archive_template'), 999);
-        add_filter('template_include', array($this, 'woomentor_redirect_product_archive_template'), 999);
-        add_action('woomentor_woocommerce_archive_product_content', array($this, 'woomentor_archive_product_page_content'));
+        add_action('template_redirect', array($this, 'unikforce_product_archive_template'), 999);
+        add_filter('template_include', array($this, 'unikforce_redirect_product_archive_template'), 999);
+        add_action('unikforce_woocommerce_archive_product_content', array($this, 'unikforce_archive_product_page_content'));
     }
 
     /**
@@ -92,7 +92,7 @@ class Woomentor_Woo_Custom_Template_Layout
      */
     public function has_template($field_key)
     {
-        $template_id = woomentor_option($field_key);
+        $template_id = unikforce_option($field_key);
         if ('0' !== $template_id) {
             return $template_id;
         } else {
@@ -103,8 +103,8 @@ class Woomentor_Woo_Custom_Template_Layout
     public function wm_get_product_page_template($template, $slug, $name)
     {
         if ('content' === $slug && 'single-product' === $name) {
-            if (Woomentor_Woo_Custom_Template_Layout::wm_custom_product_template()) {
-                $template = WOOMENTOR_ADDONS_PL_PATH . 'woo-templates/single-product.php';
+            if (UnikForce_Woo_Custom_Template_Layout::wm_custom_product_template()) {
+                $template = UNIKFORCE_PL_PATH . 'woo-templates/single-product.php';
             }
         }
         return $template;
@@ -117,12 +117,12 @@ class Woomentor_Woo_Custom_Template_Layout
             return $template;
         }
         if (is_singular('product')) {
-            if (Woomentor_Woo_Custom_Template_Layout::wm_custom_product_template()) {
+            if (UnikForce_Woo_Custom_Template_Layout::wm_custom_product_template()) {
                 $templateid = get_page_template_slug(self::single_product_tmp_id());
                 if ('elementor_header_footer' === $templateid) {
-                    $template = WOOMENTOR_ADDONS_PL_PATH . 'woo-templates/single-product-fullwidth.php';
+                    $template = UNIKFORCE_PL_PATH . 'woo-templates/single-product-fullwidth.php';
                 } elseif ('elementor_canvas' === $templateid) {
-                    $template = WOOMENTOR_ADDONS_PL_PATH . 'woo-templates/single-product-canvas.php';
+                    $template = UNIKFORCE_PL_PATH . 'woo-templates/single-product-canvas.php';
                 }
             }
         }
@@ -131,7 +131,7 @@ class Woomentor_Woo_Custom_Template_Layout
 
     public static function wm_get_product_content_elementor()
     {
-        if (Woomentor_Woo_Custom_Template_Layout::wm_custom_product_template()) {
+        if (UnikForce_Woo_Custom_Template_Layout::wm_custom_product_template()) {
             $wmtemplateid = self::single_product_tmp_id();
             echo Elementor\Plugin::instance()->frontend->get_builder_content_for_display($wmtemplateid);
         } else {
@@ -147,7 +147,7 @@ class Woomentor_Woo_Custom_Template_Layout
 
     public static function single_product_tmp_id()
     {
-        $wmtemplateid = woomentor_option('singleproductpage');
+        $wmtemplateid = unikforce_option('singleproductpage');
         $wmindividualid = get_post_meta(get_the_ID(), '_selectproduct_layout', true) ? get_post_meta(get_the_ID(), '_selectproduct_layout', true) : '0';
         if ($wmindividualid != '0') {
             $wmtemplateid = $wmindividualid;
@@ -169,24 +169,24 @@ class Woomentor_Woo_Custom_Template_Layout
     /*
     * Archive Page
     */
-    public function woomentor_product_archive_template()
+    public function unikforce_product_archive_template()
     {
         $archive_template_id = 0;
         if (defined('WOOCOMMERCE_VERSION')) {
             $termobj = get_queried_object();
-            $get_all_taxonomies = woomentor_get_taxonomies();
+            $get_all_taxonomies = unikforce_get_taxonomies();
 
             if (is_shop() || (is_tax('product_cat') && is_product_category()) || (is_tax('product_tag') && is_product_tag()) || (isset($termobj->taxonomy) && is_tax($termobj->taxonomy) && array_key_exists($termobj->taxonomy, $get_all_taxonomies))) {
-                $product_shop_custom_page_id = woomentor_option('productarchivepage');
+                $product_shop_custom_page_id = unikforce_option('productarchivepage');
 
                 // Archive Layout Control
                 $wmtermlayoutid = 0;
                 if ((is_tax('product_cat') && is_product_category()) || (is_tax('product_tag') && is_product_tag())) {
 
-                    $product_archive_custom_page_id = woomentor_option('productallarchivepage');
+                    $product_archive_custom_page_id = unikforce_option('productallarchivepage');
 
                     // Get Meta Value
-                    $wmtermlayoutid = get_term_meta($termobj->term_id, 'woomentor_selectcategory_layout', true) ? get_term_meta($termobj->term_id, 'woomentor_selectcategory_layout', true) : '0';
+                    $wmtermlayoutid = get_term_meta($termobj->term_id, 'unikforce_selectcategory_layout', true) ? get_term_meta($termobj->term_id, 'unikforce_selectcategory_layout', true) : '0';
 
                     if (!empty($product_archive_custom_page_id) && $wmtermlayoutid == '0') {
                         $wmtermlayoutid = $product_archive_custom_page_id;
@@ -207,30 +207,30 @@ class Woomentor_Woo_Custom_Template_Layout
         }
     }
 
-    public function woomentor_redirect_product_archive_template($template)
+    public function unikforce_redirect_product_archive_template($template)
     {
-        $archive_template_id = $this->woomentor_product_archive_template();
+        $archive_template_id = $this->unikforce_product_archive_template();
         $templatefile = array();
         $templatefile[] = 'woo-templates/archive-product.php';
         if ($archive_template_id != '0') {
             $template = locate_template($templatefile);
             if (!$template || (!empty($status_options['template_debug_mode']) && current_user_can('manage_options'))) {
-                $template = WOOMENTOR_ADDONS_PL_PATH . 'woo-templates/archive-product.php';
+                $template = UNIKFORCE_PL_PATH . 'woo-templates/archive-product.php';
             }
             $page_template_slug = get_page_template_slug($archive_template_id);
             if ('elementor_header_footer' === $page_template_slug) {
-                $template = WOOMENTOR_ADDONS_PL_PATH . 'woo-templates/archive-product-fullwidth.php';
+                $template = UNIKFORCE_PL_PATH . 'woo-templates/archive-product-fullwidth.php';
             } elseif ('elementor_canvas' === $page_template_slug) {
-                $template = WOOMENTOR_ADDONS_PL_PATH . 'woo-templates/archive-product-canvas.php';
+                $template = UNIKFORCE_PL_PATH . 'woo-templates/archive-product-canvas.php';
             }
         }
         return $template;
     }
 
     // Element Content
-    public function woomentor_archive_product_page_content($post)
+    public function unikforce_archive_product_page_content($post)
     {
-        $archive_template_id = $this->woomentor_product_archive_template();
+        $archive_template_id = $this->unikforce_product_archive_template();
         if ($archive_template_id != '0') {
             echo Elementor\Plugin::instance()->frontend->get_builder_content_for_display($archive_template_id);
         } else {
@@ -240,4 +240,4 @@ class Woomentor_Woo_Custom_Template_Layout
 
 }
 
-Woomentor_Woo_Custom_Template_Layout::instance();
+UnikForce_Woo_Custom_Template_Layout::instance();

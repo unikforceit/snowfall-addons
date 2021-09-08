@@ -10,7 +10,7 @@ class WM_Product_Short_Description_Element extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'WM - Product Short Description', 'woomentor' );
+        return __( 'WM - Product Short Description', 'unikforce' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WM_Product_Short_Description_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woomentor' );
+        return array( 'unikforce' );
     }
 
     public function get_style_depends(){
         return [
-            'woomentor-widgets',
+            'unikforce-widgets',
         ];
     }
 
@@ -38,7 +38,7 @@ class WM_Product_Short_Description_Element extends Widget_Base {
         $this->start_controls_section(
             'product_content_style_section',
             array(
-                'label' => __( 'Style', 'woomentor' ),
+                'label' => __( 'Style', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
@@ -46,23 +46,23 @@ class WM_Product_Short_Description_Element extends Widget_Base {
             $this->add_responsive_control(
                 'text_align',
                 [
-                    'label' => __( 'Alignment', 'woomentor' ),
+                    'label' => __( 'Alignment', 'unikforce' ),
                     'type' => Controls_Manager::CHOOSE,
                     'options' => [
                         'left' => [
-                            'title' => __( 'Left', 'woomentor' ),
+                            'title' => __( 'Left', 'unikforce' ),
                             'icon' => 'fa fa-align-left',
                         ],
                         'center' => [
-                            'title' => __( 'Center', 'woomentor' ),
+                            'title' => __( 'Center', 'unikforce' ),
                             'icon' => 'fa fa-align-center',
                         ],
                         'right' => [
-                            'title' => __( 'Right', 'woomentor' ),
+                            'title' => __( 'Right', 'unikforce' ),
                             'icon' => 'fa fa-align-right',
                         ],
                         'justify' => [
-                            'title' => __( 'Justified', 'woomentor' ),
+                            'title' => __( 'Justified', 'unikforce' ),
                             'icon' => 'fa fa-align-justify',
                         ],
                     ],
@@ -75,7 +75,7 @@ class WM_Product_Short_Description_Element extends Widget_Base {
             $this->add_control(
                 'text_color',
                 [
-                    'label' => __( 'Text Color', 'woomentor' ),
+                    'label' => __( 'Text Color', 'unikforce' ),
                     'type' => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .woocommerce-product-details__short-description' => 'color: {{VALUE}}',
@@ -88,7 +88,7 @@ class WM_Product_Short_Description_Element extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'text_typography',
-                    'label' => __( 'Typography', 'woomentor' ),
+                    'label' => __( 'Typography', 'unikforce' ),
                     'selector' => '{{WRAPPER}} .woocommerce-product-details__short-description,{{WRAPPER}} .woocommerce-product-details__short-description p',
                 ]
             );
@@ -102,7 +102,7 @@ class WM_Product_Short_Description_Element extends Widget_Base {
         global $product;
         $product = wc_get_product();
         if ( Plugin::instance()->editor->is_edit_mode() ) {
-            echo \Woomentor_Data::instance()->default( $this->get_name() );
+            echo \UnikForce_Data::instance()->default( $this->get_name() );
         }else{
             if ( empty( $product ) ) {
                 return;

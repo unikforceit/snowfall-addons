@@ -11,7 +11,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
     }
     
     public function get_title() {
-        return __( 'WM - Add To cart', 'woomentor' );
+        return __( 'WM - Add To cart', 'unikforce' );
     }
 
     public function get_icon() {
@@ -19,12 +19,12 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woomentor' );
+        return array( 'unikforce' );
     }
 
     public function get_style_depends(){
         return [
-            'woomentor-widgets',
+            'unikforce-widgets',
         ];
     }
 
@@ -37,7 +37,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
         $this->start_controls_section(
             'add_to_cart_button_style',
             [
-                'label' => __( 'Button', 'woomentor' ),
+                'label' => __( 'Button', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -48,14 +48,14 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                 $this->start_controls_tab(
                     'button_normal_style_tab',
                     [
-                        'label' => __( 'Normal', 'woomentor' ),
+                        'label' => __( 'Normal', 'unikforce' ),
                     ]
                 );
                     
                     $this->add_control(
                         'button_color',
                         [
-                            'label'     => __( 'Text Color', 'woomentor' ),
+                            'label'     => __( 'Text Color', 'unikforce' ),
                             'type'      => Controls_Manager::COLOR,
                             'selectors' => [
                                 '{{WRAPPER}} .cart button' => 'color: {{VALUE}} !important;',
@@ -67,7 +67,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                         Group_Control_Typography::get_type(),
                         array(
                             'name'      => 'button_typography',
-                            'label'     => __( 'Typography', 'woomentor' ),
+                            'label'     => __( 'Typography', 'unikforce' ),
                             'selector'  => '{{WRAPPER}} .cart button',
                         )
                     );
@@ -75,7 +75,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                     $this->add_control(
                         'button_padding',
                         [
-                            'label' => __( 'Padding', 'woomentor' ),
+                            'label' => __( 'Padding', 'unikforce' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', 'em' ],
                             'selectors' => [
@@ -87,7 +87,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                     $this->add_control(
                         'button_margin',
                         [
-                            'label' => __( 'Margin', 'woomentor' ),
+                            'label' => __( 'Margin', 'unikforce' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'size_units' => [ 'px', 'em' ],
                             'selectors' => [
@@ -100,7 +100,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                         Group_Control_Border::get_type(),
                         [
                             'name' => 'button_border',
-                            'label' => __( 'Border', 'woomentor' ),
+                            'label' => __( 'Border', 'unikforce' ),
                             'selector' => '{{WRAPPER}} .cart button',
                         ]
                     );
@@ -108,7 +108,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                     $this->add_control(
                         'button_border_radius',
                         [
-                            'label' => __( 'Border Radius', 'woomentor' ),
+                            'label' => __( 'Border Radius', 'unikforce' ),
                             'type' => Controls_Manager::DIMENSIONS,
                             'selectors' => [
                                 '{{WRAPPER}} .cart button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
@@ -119,7 +119,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                     $this->add_control(
                         'button_background_color',
                         [
-                            'label' => __( 'Background Color', 'woomentor' ),
+                            'label' => __( 'Background Color', 'unikforce' ),
                             'type' => Controls_Manager::COLOR,
                             'selectors' => [
                                 '{{WRAPPER}} .cart button' => 'background-color: {{VALUE}} !important',
@@ -133,14 +133,14 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                 $this->start_controls_tab(
                     'button_hover_style_tab',
                     [
-                        'label' => __( 'Hover', 'woomentor' ),
+                        'label' => __( 'Hover', 'unikforce' ),
                     ]
                 ); 
                     
                     $this->add_control(
                         'button_hover_color',
                         [
-                            'label'     => __( 'Text Color', 'woomentor' ),
+                            'label'     => __( 'Text Color', 'unikforce' ),
                             'type'      => Controls_Manager::COLOR,
                             'selectors' => [
                                 '{{WRAPPER}} .cart button:hover' => 'color: {{VALUE}} !important;',
@@ -151,7 +151,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                     $this->add_control(
                         'button_hover_background_color',
                         [
-                            'label' => __( 'Background Color', 'woomentor' ),
+                            'label' => __( 'Background Color', 'unikforce' ),
                             'type' => Controls_Manager::COLOR,
                             'selectors' => [
                                 '{{WRAPPER}} .cart button:hover' => 'background-color: {{VALUE}} !important',
@@ -162,7 +162,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
                     $this->add_control(
                         'button_hover_border_color',
                         [
-                            'label' => __( 'Border Color', 'woomentor' ),
+                            'label' => __( 'Border Color', 'unikforce' ),
                             'type' => Controls_Manager::COLOR,
                             'selectors' => [
                                 '{{WRAPPER}} .cart button:hover' => 'border-color: {{VALUE}} !important',
@@ -184,7 +184,7 @@ class WM_Product_Add_To_Cart_Element extends Widget_Base {
         global $product;
         $product = wc_get_product();
         if ( Plugin::instance()->editor->is_edit_mode() ) {
-            $cart_btn = \Woomentor_Data::instance()->default( $this->get_name() );
+            $cart_btn = \UnikForce_Data::instance()->default( $this->get_name() );
             echo '<div class="add-to-cart-button">'.$cart_btn.'</div>';
         }else{
             if ( empty( $product ) ) { return; }

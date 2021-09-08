@@ -1,11 +1,11 @@
 {
-    "name": "unikforce/woomentor-addons",
-    "description": "Woomentor addons is a complete woocommerce solutions with elementor and other building features.",
+    "name": "unikforce/unikforce-elementor-woocommerce",
+    "description": "UnikForce Elementor WooCommerce is a complete woocommerce solutions with elementor and other building features.",
     "autoload": {
         "psr-4": {
-            "UnikForce\\WoomentorAddons\\Admin\\": "admin/",
-            "UnikForce\\WoomentorAddons\\Frontend\\": "frontend/",
-            "UnikForce\\WoomentorAddons\\Includes\\": "includes/"
+            "UnikForce\\UnikForce\\Admin\\": "admin/",
+            "UnikForce\\UnikForce\\Frontend\\": "frontend/",
+            "UnikForce\\UnikForce\\Includes\\": "includes/"
         },
         "files": [
             "includes/framework/codestar-framework.php",

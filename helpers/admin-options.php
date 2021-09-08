@@ -4,21 +4,21 @@ if (class_exists('CSF')) {
 
     //
     // Set a unique slug-like ID
-    $prefix = '_woomentor';
+    $prefix = '_unikforce';
 
     //
     // Create options
     CSF::createOptions($prefix, array(
-        'menu_title' => 'Woomentor',
-        'menu_slug' => 'woomentor',
-        'framework_title' => 'Woomentor Addons',
+        'menu_title' => 'UnikForce Elementor WooCommerce',
+        'menu_slug' => 'unikforce-elementor-woocommerce',
+        'framework_title' => 'UnikForce Elementor WooCommerce ',
         'menu_position' => 50,
         'nav' => 'inline',
         'theme' => 'light',
         'menu_icon' => 'dashicons-wordpress-alt',
         'show_in_customizer' => true,
-        'footer_text' => 'WooMentor Addons',
-        'footer_credit' => 'WooMentor Addons by <a href="https://unikforce.com" target="_blank">UnikForce</a>',
+        'footer_text' => 'UnikForce Elementor WooCommerce ',
+        'footer_credit' => 'UnikForce Elementor WooCommerce  by <a href="https://unikforce.com" target="_blank">UnikForce</a>',
         'footer_after' => '<a href="https://unikforce.com" target="_blank">Go Pro</a>',
     ));
 
@@ -33,8 +33,8 @@ if (class_exists('CSF')) {
             array(
                 'id'    => 'wm_builder',
                 'type'  => 'switcher',
-                'title' => 'Woomentor Builder',
-                'label' => 'Woomentor builder to enable features.',
+                'title' => 'UnikForce Builder',
+                'label' => 'UnikForce builder to enable features.',
             ),
             array(
                 'id'          => 'singleproductpage',
@@ -42,7 +42,7 @@ if (class_exists('CSF')) {
                 'title'       => 'Select Product Single Template',
                 'placeholder' => 'Select Product Single Template',
                 'dependency' => ['wm_builder', '==', 'true'],
-                'options'     => woomentor_post_lists('elementor_library'),
+                'options'     => unikforce_post_lists('elementor_library'),
             ),
             array(
                 'id'          => 'productarchivepage',
@@ -50,7 +50,7 @@ if (class_exists('CSF')) {
                 'title'       => 'Select Shop Template',
                 'placeholder' => 'Select Shop Template',
                 'dependency' => ['wm_builder', '==', 'true'],
-                'options'     => woomentor_post_lists('elementor_library'),
+                'options'     => unikforce_post_lists('elementor_library'),
             ),
             array(
                 'id'          => 'productallarchivepage',
@@ -58,7 +58,7 @@ if (class_exists('CSF')) {
                 'title'       => 'Select Product Archive Template',
                 'placeholder' => 'Select Product Archive Template',
                 'dependency' => ['wm_builder', '==', 'true'],
-                'options'     => woomentor_post_lists('elementor_library'),
+                'options'     => unikforce_post_lists('elementor_library'),
             ),
         )
     )

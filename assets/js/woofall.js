@@ -26,5 +26,5 @@
         }
     });
 
-console.log('Woomentor Js loaded')
+console.log('UnikForce Js loaded')
 })(jQuery);

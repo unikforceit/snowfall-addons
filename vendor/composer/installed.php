@@ -5,18 +5,18 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'cc129c65c55679e15be187977cd0a856dd39c04a',
-        'name' => 'unikforce/woomentor-addons',
+        'reference' => '99d6593ecd95a8c42b65341a8d5fb4ea1e603df2',
+        'name' => 'unikforce/unikforce-elementor-woocommerce',
         'dev' => true,
     ),
     'versions' => array(
-        'unikforce/woomentor-addons' => array(
+        'unikforce/unikforce-elementor-woocommerce' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'cc129c65c55679e15be187977cd0a856dd39c04a',
+            'reference' => '99d6593ecd95a8c42b65341a8d5fb4ea1e603df2',
             'dev_requirement' => false,
         ),
     ),

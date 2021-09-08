@@ -36,16 +36,16 @@ global $post;
 ?>
 
 <div id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="woomentor-woo-template-builder">
+	<div class="unikforce-woo-template-builder">
 		<?php
 			/**
 			 * Hook for product builder.
-			 * woomentor_woocommerce_product_builder
+			 * unikforce_woocommerce_product_builder
 			 *
 			 * @hooked wm_get_product_content_elementor() - 5.
 			 * @hooked wm_get_default_product_data() - 10.
 			 */
-			do_action( 'woomentor_woocommerce_product_content', $post );
+			do_action( 'unikforce_woocommerce_product_content', $post );
 		?>
 	</div>
 </div><!-- #product-<?php //the_ID(); ?> -->

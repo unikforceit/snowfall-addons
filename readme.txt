@@ -1,4 +1,4 @@
-=== Woomentor - WooCommerce Elementor Addons + Builder ===
+=== UnikForce Elementor WooCommerce Builder ===
 Contributors: unikforce
 Tags: elementor woocommerce builder, wp elementor addon, elementor addons, wordpress woocommerce builder
 Requires at least: 5.0
@@ -33,7 +33,7 @@ Note : This plugin works with Elementor. Make sure you have [Elementor](https://
 
 1. Upload the plugin folder to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
-3. You can type "Woomentor - WooCommerce Elementor Addons + Builder" on your element tabs within Elementor editor and all the avialable elements will appear.
+3. You can type "UnikForce Elementor WooCommerce Builder Elementor For WooCommerce Builder" on your element tabs within Elementor editor and all the avialable elements will appear.
 
 == Frequently Asked Questions ==
 

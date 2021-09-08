@@ -10,7 +10,7 @@ class WM_Product_Image_Element extends Widget_Base {
     }
 
     public function get_title() {
-        return __( 'WM - Product Image', 'woomentor' );
+        return __( 'WM - Product Image', 'unikforce' );
     }
 
     public function get_icon() {
@@ -18,12 +18,12 @@ class WM_Product_Image_Element extends Widget_Base {
     }
 
     public function get_categories() {
-        return array( 'woomentor' );
+        return array( 'unikforce' );
     }
 
     public function get_style_depends(){
         return [
-            'woomentor-widgets',
+            'unikforce-widgets',
         ];
     }
 
@@ -37,7 +37,7 @@ class WM_Product_Image_Element extends Widget_Base {
         $this->start_controls_section(
             'product_image_style_section',
             array(
-                'label' => __( 'Image', 'woomentor' ),
+                'label' => __( 'Image', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
@@ -54,7 +54,7 @@ class WM_Product_Image_Element extends Widget_Base {
             $this->add_responsive_control(
                 'product_image_border_radius',
                 [
-                    'label' => __( 'Border Radius', 'woomentor' ),
+                    'label' => __( 'Border Radius', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%' ],
                     'selectors' => [
@@ -67,7 +67,7 @@ class WM_Product_Image_Element extends Widget_Base {
             $this->add_responsive_control(
                 'product_margin',
                 [
-                    'label' => __( 'Margin', 'woomentor' ),
+                    'label' => __( 'Margin', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -82,7 +82,7 @@ class WM_Product_Image_Element extends Widget_Base {
         $this->start_controls_section(
             'product_thumbnails_image_style_section',
             array(
-                'label' => __( 'Thumbnails', 'woomentor' ),
+                'label' => __( 'Thumbnails', 'unikforce' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             )
         );
@@ -91,7 +91,7 @@ class WM_Product_Image_Element extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name' => 'product_thumbnails_border',
-                    'label' => __( 'Thumbnails Border', 'woomentor' ),
+                    'label' => __( 'Thumbnails Border', 'unikforce' ),
                     'selector' => '{{WRAPPER}} .flex-control-thumbs img',
                 ]
             );
@@ -99,7 +99,7 @@ class WM_Product_Image_Element extends Widget_Base {
             $this->add_responsive_control(
                 'product_thumbnails_border_radius',
                 [
-                    'label' => __( 'Border Radius', 'woomentor' ),
+                    'label' => __( 'Border Radius', 'unikforce' ),
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%' ],
                     'selectors' => [
@@ -111,7 +111,7 @@ class WM_Product_Image_Element extends Widget_Base {
             $this->add_control(
                 'product_thumbnails_spacing',
                 [
-                    'label' => __( 'Spacing', 'woomentor' ),
+                    'label' => __( 'Spacing', 'unikforce' ),
                     'type' => Controls_Manager::SLIDER,
                     'size_units' => [ 'px', 'em' ],
                     'selectors' => [
@@ -133,7 +133,7 @@ class WM_Product_Image_Element extends Widget_Base {
         $product = wc_get_product();
 
         if( Plugin::instance()->editor->is_edit_mode() ){
-            echo \Woomentor_Data::instance()->default( $this->get_name() );
+            echo \UnikForce_Data::instance()->default( $this->get_name() );
         } else{
             if ( empty( $product ) ) { return; }
             /**
