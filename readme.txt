@@ -2,7 +2,7 @@
 Contributors: unikforce
 Tags: elementor woocommerce builder, wp elementor addon, elementor addons, wordpress woocommerce builder
 Requires at least: 5.0
-Tested up to: 5.7.2
+Tested up to: 5.8.1
 Requires PHP: 5.6
 Stable tag: 1.0.0
 License: GPLv3
