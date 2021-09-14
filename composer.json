@@ -8,7 +8,7 @@
             "UnikForce\\UnikForce\\Includes\\": "includes/"
         },
         "files": [
-            "includes/framework/codestar-framework.php",
+            "includes/codestar-framework/codestar-framework.php",
             "helpers/helpers.php",
             "helpers/admin-options.php",
             "includes/builder-functions.php",
